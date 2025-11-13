@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stackly Fashion - Redefining Luxury Style</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="contact.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    /* ==== HEADER STYLES ==== */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 5%;
+      background: rgba(255, 255, 255, 0.98);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(5px);
+      z-index: 1000;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #000;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    nav ul li a:hover {
+      color: #c7923e;
+    }
+
+    /* ==== HAMBURGER MENU ==== */
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      width: 28px;
+      height: 20px;
+      justify-content: space-between;
+    }
+
+    .menu-toggle span {
+      height: 3px;
+      width: 100%;
+      background: #000;
+      border-radius: 2px;
+      transition: 0.3s ease;
+    }
+
+    /* ==== CONTACT HERO ==== */
+    /* .contact-hero {
+      background-size: cover;
+      background-position: center;
+      color: white;
+      text-align: center;
+      padding: 150px 20px 100px;
+      margin-top: 80px;
+    } */
+
+    /* ==== RESPONSIVE DESIGN ==== */
+    @media (max-width: 1024px) {
+      nav ul {
+        gap: 15px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: flex;
+      }
+
+      nav {
+        position: fixed;
+        top: 70px;
+        right: -100%;
+        width: 70%;
+        height: 100vh;
+        background: rgba(255, 255, 255, 0.98);
+        box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+        transition: 0.4s ease;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: start;
+        padding-top: 100px;
+      }
+
+      nav.active {
+        right: 0;
+      }
+
+      nav ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+      }
+
+      nav ul li a {
+        font-size: 1.1rem;
+      }
+
+      /* Animate hamburger icon */
+      .menu-toggle.active span:nth-child(1) {
+        transform: rotate(45deg) translateY(8px);
+      }
+      .menu-toggle.active span:nth-child(2) {
+        opacity: 0;
+      }
+      .menu-toggle.active span:nth-child(3) {
+        transform: rotate(-45deg) translateY(-8px);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .contact-container {
+        flex-direction: column;
+        padding: 20px;
+      }
+      .info-card, .form-container {
+        width: 100%;
+      }
+      iframe {
+        width: 100%;
+      }
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+    }
+
+    .footer-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      gap: 20px;
+    }
+
+    @media (max-width: 768px) {
+      .footer-container {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+
+    /* ===== Dropdown Menu ===== */
+.dropdown {
+  position: relative;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: white;
+  list-style: none;
+  padding: 10px 0;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  border-radius: 8px;
+  z-index: 999;
+  min-width: 160px;
+}
+
+.dropdown-menu li {
+  text-align: left;
+  padding: 8px 20px;
+}
+
+.dropdown-menu li a {
+  color: #222;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-menu li a:hover {
+  color: #e91e63;
+  background: rgba(233, 30, 99, 0.05);
+}
+
+/* Show dropdown on hover (desktop) */
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+/* ===== Responsive Dropdown (for mobile toggle) ===== */
+@media (max-width: 950px) {
+  .dropdown-menu {
+    position: static;
+    display: none;
+    box-shadow: none;
+    background: none;
+    padding: 0;
+  }
+
+  .dropdown.open .dropdown-menu {
+    display: block;
+  }
+
+  .dropdown-menu li {
+    padding: 10px 0;
+  }
+}
+
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <a href="index.html">
+      <img src="./logo.webp" alt="Stackly Logo" style="width: 150px;">
+    </a>
+
+    <div class="menu-toggle" id="menu-toggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <nav id="navMenu">
+      <ul>
+        <ul id="menu">
+          <li class="dropdown">
+            <a href="./index.html">Home1 ▾</a>
+            <ul class="dropdown-menu">
+              <li><a href="./hp2.html">Home2</a></li>
+              
+            </ul>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="product.html">Product</a></li>
+        <li><a href="blog.html">Blogs</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="dashboard.html">Dashboard</a></li>
+        <li><a href="login.html">Login</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- CONTACT HERO -->
+  <section class="contact-hero" style="background-image: url('./image1.webp');">
+    <h1>Get in Touch</h1>
+    <p>We’d love to hear from you! Reach out with any questions, feedback, or partnership ideas.</p>
+  </section>
+
+  <!-- MAIN CONTENT -->
+  <main class="contact-container">
+    <div class="contact-info">
+      <div class="info-card">
+        <i class="fas fa-envelope icon"></i>
+        <h3>Email</h3>
+        <p>info@thestackly.com</p>
+      </div>
+      <div class="info-card">
+        <i class="fas fa-phone-alt icon"></i>
+        <h3>Phone</h3>
+        <p>+91 70107 92745</p>
+      </div>
+      <div class="info-card">
+        <i class="fas fa-map-marker-alt icon"></i>
+        <h3>Address</h3>
+        <p>MMR complex, Salem, Tamil Nadu 636008</p>
+      </div>
+    </div>
+
+    <div class="form-container">
+      <h2>Send Us a Message</h2>
+      <form id="contactForm">
+        <input type="text" id="name" placeholder="Your Name" required>
+        <input type="email" id="email" placeholder="Your Email" required>
+        <textarea id="message" placeholder="Your Message" rows="5" required></textarea>
+        <a href="404.html"><button type="submit" class="btn"><a href="404.html">Send Message</button></a>
+        <p id="response"></p>
+      </form>
+
+      <div class="extra-info">
+        <p><strong>Hours of Operation:</strong><br>Mon–Sat: 9:00 AM – 8:00 PM<br>Sun: Closed</p>
+        <p><strong>Response Time:</strong><br>We usually reply within 24 hours.</p>
+      </div>
+    </div>
+  </main>
+
+  <!-- MAP -->
+  <section class="map-section">
+    <h2>Our Location</h2>
+    <iframe
+      src="https://www.google.com/maps?q=Salem%20Tamil%20Nadu&output=embed"
+      allowfullscreen="" loading="lazy">
+    </iframe>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq-section">
+    <h2>Frequently Asked Questions</h2>
+    <div class="faq">
+      <div class="faq-item">
+        <h3>How long will it take to get a response?</h3>
+        <p>We usually respond within 24 hours during business days.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Do you have a physical store?</h3>
+        <p>Yes! You can visit our showroom at 123 Fashion Street, Los Angeles.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Can I return or exchange my product in-store?</h3>
+        <p>Absolutely! Bring your invoice and product within 7 days of delivery.</p>
+      </div>
+    </div>
+  </section>
+
+ 
+
+  <script>
+    // ==== MOBILE MENU SCRIPT ====
+    const menuToggle = document.getElementById("menu-toggle");
+    const navMenu = document.getElementById("navMenu");
+
+    menuToggle.addEventListener("click", () => {
+      navMenu.classList.toggle("active");
+      menuToggle.classList.toggle("active");
+    });
+
+    
+  const toggle = document.getElementById('menu-toggle');
+  const menu = document.getElementById('menu');
+  const dropdowns = document.querySelectorAll('.dropdown');
+
+  toggle.addEventListener('click', () => {
+    menu.classList.toggle('active');
+    toggle.classList.toggle('open');
+  });
+
+  // Handle dropdown toggle for mobile
+  dropdowns.forEach(drop => {
+    drop.addEventListener('click', (e) => {
+      if (window.innerWidth <= 950) {
+        e.preventDefault();
+        drop.classList.toggle('open');
+      }
+    });
+  });
+
+
+  </script>
+
+</body>
+</html>

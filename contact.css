@@ -1,0 +1,43 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Poppins', sans-serif; background: #f9f9f9; color: #333; }
+
+.header { display: flex; background-color:url('./images/image1.jpg') space-between; align-items: center; padding: 20px 60px; background: #fff; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+.logo { font-size: 1.8em; font-weight: 600;  }
+.nav a { margin: 0 15px; text-decoration: none; color: #333; font-weight: 500; transition: 0.3s; }
+.nav a.active, .nav a:hover {  }
+
+.contact-hero { text-align: center; padding: 60px 20px; }
+.contact-hero h1 { font-size: 2.5em; }
+.contact-hero p { margin-top: 10px; font-size: 1.1em; }
+
+.contact-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 40px; margin: 50px auto; width: 90%; }
+
+.contact-info { display: flex; flex-direction: column; gap: 20px; flex: 1; min-width: 250px; }
+.info-card { background: #fff; padding: 25px; border-radius: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); text-align: center; transition: transform 0.3s; }
+.info-card:hover { transform: scale(1.05); }
+.icon { font-size: 2em;  margin-bottom: 10px; }
+
+.form-container { background: #fff; padding: 30px; border-radius: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); flex: 1.2; min-width: 300px; }
+.form-container h2 { margin-bottom: 20px; color: #ff6f61; }
+form { display: flex; flex-direction: column; gap: 15px; }
+input, textarea { padding: 12px; border: 1px solid #ccc; border-radius: 10px; font-size: 1em; }
+.btn { background: #ff6f61; color: #fff; border: none; padding: 12px; border-radius: 10px; cursor: pointer; transition: 0.3s; font-weight: 600; }
+.btn:hover { background: #e85c52; }
+
+.extra-info { margin-top: 20px; font-size: 0.95em; color: #555; }
+
+.map-section { margin: 50px auto; width: 90%; text-align: center; }
+.map-section iframe { width: 100%; height: 350px; border: none; border-radius: 20px; margin-top: 20px; }
+
+.faq-section { background: #fff; width: 90%; margin: 50px auto; padding: 40px; border-radius: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+.faq-item { margin-bottom: 15px; }
+.faq-item h3 { color: #ff6f61; margin-bottom: 8px; }
+
+footer { background: #222; color: #fff; text-align: center; padding: 30px 10px; margin-top: 50px; border-top: 4px solid #ff6f61; }
+.social a { color: #fff; margin: 0 10px; font-size: 1.3em; transition: 0.3s; }
+.social a:hover { color: #ff6f61; }
+
+@media (max-width: 768px) {
+  .contact-container { flex-direction: column; align-items: center; }
+  .form-container, .contact-info { width: 100%; }
+}
