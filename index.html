@@ -6,6 +6,7 @@
   <title>Stackly Fashion - Redefining Luxury Style</title>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
   <style>
     /* ===== Base Reset ===== */
     * {
@@ -13,13 +14,14 @@
       padding: 0;
       box-sizing: border-box;
     }
-
+    
     body {
       font-family: "Poppins", sans-serif;
       line-height: 1.6;
       overflow-x: hidden;
     }
 
+    /* ===== HEADER ===== */
     header {
       position: fixed;
       top: 0;
@@ -44,6 +46,11 @@
       list-style: none;
       display: flex;
       gap: 25px;
+      align-items: center;
+    }
+
+    nav ul li {
+      position: relative;
     }
 
     nav ul li a {
@@ -55,6 +62,99 @@
 
     nav ul li a:hover {
       color: #e91e63;
+    }
+
+    /* ===== Dropdown ===== */
+    .dropdown-menu {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: white;
+      display: none;
+      flex-direction: column;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      border-radius: 6px;
+      overflow: hidden;
+      min-width: 150px;
+    }
+
+    .dropdown:hover .dropdown-menu {
+      display: flex;
+    }
+
+    .dropdown-menu li a {
+      padding: 10px 15px;
+      display: block;
+      color: #333;
+    }
+
+    .dropdown-menu li a:hover {
+      background: #f2f2f2;
+      color: #e91e63;
+    }
+
+    /* ===== Hamburger Menu ===== */
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      width: 25px;
+      height: 20px;
+      justify-content: space-between;
+    }
+
+    .menu-toggle span {
+      height: 3px;
+      width: 100%;
+      background: #222;
+      border-radius: 2px;
+      transition: all 0.4s ease;
+    }
+
+    .menu-toggle.open span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+    .menu-toggle.open span:nth-child(2) {
+      opacity: 0;
+    }
+    .menu-toggle.open span:nth-child(3) {
+      transform: rotate(-45deg) translate(5px, -5px);
+    }
+
+    /* ===== Responsive Menu ===== */
+    @media (max-width: 950px) {
+      .menu-toggle {
+        display: flex;
+      }
+
+      nav ul {
+        position: fixed;
+        top: 70px;
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 70px);
+        background: white;
+        flex-direction: column;
+        gap: 25px;
+        padding-top: 50px;
+        transition: all 0.4s ease;
+        text-align: center;
+      }
+
+      nav ul.active {
+        left: 0;
+      }
+
+      .dropdown-menu {
+        position: static;
+        display: none;
+        box-shadow: none;
+        background: #fafafa;
+      }
+
+      .dropdown.open .dropdown-menu {
+        display: flex;
+      }
     }
 
     /* ===== Hero Section ===== */
@@ -213,90 +313,86 @@
 
     /* ===== Footer ===== */
     .footer {
-  background:url('./hp1\ footer.webp');
-    color: white;
-    padding: 40px 20px 20px;
-    font-family: 'Poppins', sans-serif;
-    position: relative;
-  }
-  
-  /* Footer container layout */
-  .footer-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    gap: 30px;
-    max-width: 1200px;
-    margin: auto;
-  }
-  
-  /* Footer sections */
-  .footer-section {
-    flex: 1;
-    min-width: 250px;
-  }
-  
-  /* Logo + About section */
-  .footer-logo {
-    width: 200px;
-    margin-bottom: 10px;
-  }
-  .footer h3 {
-    margin-bottom: 10px;
-    color: #00e0b8;
-  }
-  
-  /* Links section */
-  .footer-section ul {
-    list-style: none;
-    padding: 0;
-  }
-  .footer-section ul li {
-    margin: 8px 0;
-  }
-  .footer-section ul li a {
-    text-decoration: none;
-    color: #ddd;
-    transition: color 0.3s;
-  }
-  .footer-section ul li a:hover {
-    color: #00e0b8;
-  }
-  
-  /* Contact + social */
-  .social-icons img {
-    width: 24px;
-    margin-right: 10px;
-    transition: transform 0.3s;
-  }
-  .social-icons img:hover {
-    transform: scale(1.2);
-  }
-  
-  /* Footer bottom */
-  .footer-bottom {
-    text-align: center;
-    border-top: 1px solid rgba(255,255,255,0.2);
-    padding-top: 15px;
-    margin-top: 20px;
-    font-size: 14px;
-    color: rgba(255,255,255,0.8);
-  }
-  
+      background:url('./hp1 footer.webp');
+      color: white;
+      padding: 40px 20px 20px;
+      font-family: 'Poppins', sans-serif;
+      position: relative;
+    }
 
+    .footer-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 30px;
+      max-width: 1200px;
+      margin: auto;
+    }
 
+    .footer-section {
+      flex: 1;
+      min-width: 250px;
+    }
+
+    .footer-logo {
+      width: 200px;
+      margin-bottom: 10px;
+    }
+
+    .footer h4 {
+      margin-bottom: 10px;
+      color: #00e0b8;
+    }
+
+    .footer-section ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .footer-section ul li {
+      margin: 8px 0;
+    }
+
+    .footer-section ul li a {
+      text-decoration: none;
+      color: #ddd;
+      transition: color 0.3s;
+    }
+
+    .footer-section ul li a:hover {
+      color: #00e0b8;
+    }
+
+    .social-icons i {
+      font-size: 20px;
+      color: white;
+      margin-right: 15px;
+      transition: transform 0.3s;
+    }
+
+    .social-icons i:hover {
+      transform: scale(1.2);
+      color: #00e0b8;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      border-top: 1px solid rgba(255,255,255,0.2);
+      padding-top: 15px;
+      margin-top: 20px;
+      font-size: 14px;
+      color: rgba(255,255,255,0.8);
+    }
   </style>
 </head>
+
 <body>
 
   <!-- ===== HEADER ===== -->
-  <header class="scrolled">
-    <img src="./logo.webp" alt="Stackly Logo" style="width: 150px;">
-
+  <header>
+    <img src="./logo.webp" alt="Stackly Logo">
     <div class="menu-toggle" id="menu-toggle">
-      <span></span>
-      <span></span>
-      <span></span>
+      <span></span><span></span><span></span>
     </div>
 
     <nav>
@@ -305,10 +401,8 @@
           <a href="./index.html">Home1 ▾</a>
           <ul class="dropdown-menu">
             <li><a href="./hp2.html">Home2</a></li>
-            
           </ul>
-
-        <!-- <li><a href="hp2.html">Home2</a></li> -->
+        </li>
         <li><a href="shop.html">Shop</a></li>
         <li><a href="product.html">Product</a></li>
         <li><a href="blog.html">Blogs</a></li>
@@ -319,22 +413,20 @@
     </nav>
   </header>
 
-  <!-- ===== YOUR ORIGINAL CONTENT (Unchanged) ===== -->
-  <!-- Keep all your sections here (Hero, Cards, Runway, etc.) -->
-  <!-- I have omitted them for brevity, as they are unchanged -->
-  <!-- Paste your sections here exactly as in your original code -->
-
-
+  <!-- ===== REST OF YOUR PAGE CONTENT (unchanged) ===== -->
+  <!-- Hero, Cards, Runway, Best Sellers, Footer -->
+  <!-- (Your same content remains below this comment) -->
   <section class="parallax reveal" >
     <div class="parallax-content">
       <h2 class="hero-animated-line">
-        <span>Unveil</span> <span>Your</span> <span>Signature</span> <span>Look</span>
+        <span>Signature</span> <span>Look</span> 
+        
+       
       </h2>
   
       <p class="reveal" style="margin-top: 20px; font-size: 1.2rem; color: #ddd;">
-        Discover the finest in contemporary fashion — where craftsmanship meets creativity.<br>
-        Explore timeless silhouettes, seasonal collections,<br> and runway-inspired designs crafted for the modern muse.
-      </p>
+        Discover the finest in contemporary fashion <br>
+        Explore timeless silhouettes, seasonal collections,<br> and runway-inspired designs.. </p>
   
       <div class="hero-text-scroll">
         <span>Luxury • Couture • Runway • Style • Elegance • Fashion • Confidence • </span>
@@ -507,38 +599,34 @@
       
         </footer>
 
-  
+
+
+  <!-- ===== SCRIPT ===== -->
   <script>
     const toggle = document.getElementById('menu-toggle');
     const menu = document.getElementById('menu');
+    const dropdowns = document.querySelectorAll('.dropdown');
 
     toggle.addEventListener('click', () => {
       menu.classList.toggle('active');
       toggle.classList.toggle('open');
     });
 
-    
-  const toggle = document.getElementById('menu-toggle');
-  const menu = document.getElementById('menu');
-  const dropdowns = document.querySelectorAll('.dropdown');
+    dropdowns.forEach(drop => {
+      drop.addEventListener('click', (e) => {
+        if (window.innerWidth <= 950) {
+          e.preventDefault();
+          drop.classList.toggle('open');
+        }
+      });
+    });
 
-  toggle.addEventListener('click', () => {
-    menu.classList.toggle('active');
-    toggle.classList.toggle('open');
-  });
-
-  // Handle dropdown toggle for mobile
-  dropdowns.forEach(drop => {
-    drop.addEventListener('click', (e) => {
-      if (window.innerWidth <= 950) {
-        e.preventDefault();
-        drop.classList.toggle('open');
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 950) {
+        menu.classList.remove('active');
+        toggle.classList.remove('open');
       }
     });
-  });
-
-
   </script>
-
 </body>
 </html>
