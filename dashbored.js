@@ -44,25 +44,25 @@ new Chart(custCtx, {
   }
 });
 
-// ----------- CATEGORY PIE CHART -----------
-const catCtx = document.getElementById("categoryChart").getContext("2d");
-new Chart(catCtx, {
-  type: "pie",
-  data: {
-    labels: ["Fashion", "Electronics", "Kitchen", "Cosmetics", "Furniture"],
-    datasets: [{
-      data: [35, 25, 15, 10, 15],
-      backgroundColor: ["#f1b200", "#ffcc33", "#f5d878", "#f7b731", "#ffd633"]
-    }]
-  },
-  options: {
-    responsive: true,
-    plugins: {
-      legend: { position: "bottom" },
-    },
-    animation: { animateScale: true, duration: 2000 }
-  }
-});
+// // ----------- CATEGORY PIE CHART -----------
+// const catCtx = document.getElementById("categoryChart").getContext("2d");
+// new Chart(catCtx, {
+//   type: "pie",
+//   data: {
+//     labels: ["Fashion", "Electronics", "Kitchen", "Cosmetics", "Furniture"],
+//     datasets: [{
+//       data: [35, 25, 15, 10, 15],
+//       backgroundColor: ["#f1b200", "#ffcc33", "#f5d878", "#f7b731", "#ffd633"]
+//     }]
+//   },
+//   options: {
+//     responsive: true,
+//     plugins: {
+//       legend: { position: "bottom" },
+//     },
+//     animation: { animateScale: true, duration: 2000 }
+//   }
+// });
 
 // ----------- REVENUE DOUGHNUT CHART -----------
 const revCtx = document.getElementById("revenueChart").getContext("2d");

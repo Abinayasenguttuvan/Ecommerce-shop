@@ -13,6 +13,7 @@ body {
 
 /* HEADER */
 .header {
+  
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -36,7 +37,7 @@ body {
   color: #444;
   font-weight: 500;
   transition: color 0.3s;
-  gap:25px;
+  gap:15px;
 }
 .nav a.active,
 .nav a:hover {
