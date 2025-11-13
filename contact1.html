@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Contact Us | Shoply</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
+
+<style>
+  body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: #f7f7f7;
+  }
+
+  header {
+    width: 100%;
+    background: #d6b77b;
+    color: #fff;
+    padding: 15px 0;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+    animation: fadeInDown 0.6s ease;
+  }
+
+  @keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-30px);} 
+    to { opacity: 1; transform: translateY(0);} 
+  }
+
+  nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .logo img {
+    width: 150px;
+  }
+
+  nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    gap: 25px;
+  }
+
+  nav ul li {
+    position: relative;
+  }
+
+  nav a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    transition: 0.3s ease;
+  }
+
+  nav a:hover {
+    color: #f3b200;
+  }
+
+  /* Dropdown */
+  ul.dropdown {
+    display: none;
+    position: absolute;
+    top: 35px;
+    background: #333;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  }
+
+  nav ul li:hover .dropdown {
+    display: block;
+    animation: fadeIn 0.3s ease;
+  }
+
+  @keyframes fadeIn {
+    from {opacity: 0;} 
+    to {opacity: 1;}
+  }
+
+  /* Mobile Menu Button */
+  .menu-btn {
+    display: none;
+    cursor: pointer;
+    color: #fff;
+    font-size: 26px;
+    padding-right: 15px;
+  }
+
+  /* Hero Section */
+  .hero {
+    height: 45vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    margin-top: 90px;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background: url('./hp2 contact.webp') center/cover no-repeat;
+    filter: brightness(0.4);
+    transform: scale(1.14);
+    animation: zoomIn 12s ease-in-out infinite alternate;
+  }
+
+  @keyframes zoomIn {
+    0%{transform:scale(1.1)}
+    100%{transform:scale(1.18)}
+  }
+
+  .hero h1 {
+    z-index: 2;
+    font-size: 48px;
+    text-align: center;
+    color: #4dd0e1;
+    animation: fadeUp 1.4s ease-out;
+  }
+
+  @keyframes fadeUp {
+    from{opacity:0;transform:translateY(40px)}
+    to{opacity:1;transform:translateY(0px)}
+  }
+
+  .container {
+    width: 90%;
+    max-width: 1100px;
+    margin: auto;
+    padding: 50px 0;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+  }
+
+  .contact-card {
+    background: rgba(255,255,255,0.9);
+    border-radius: 14px;
+    padding: 26px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    animation: float 6s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%,100%{transform:translateY(0)}
+    50%{transform:translateY(-10px)}
+  }
+
+  form input, form textarea {
+    width: 100%;
+    padding: 12px 14px;
+    margin-bottom: 12px;
+    font-size: 15px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    outline: none;
+    transition: 0.3s box-shadow ease;
+  }
+
+  form input:hover, form textarea:hover {
+    box-shadow: 0 0 12px #4dd0e1;
+  }
+
+  .btn {
+    padding: 12px 22px;
+    background: #4dd0e1;
+    color: #000;
+    border: none;
+    font-weight: 600;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s, box-shadow 0.3s;
+  }
+
+  .btn:hover {
+    background: #81e9f3;
+    box-shadow: 0 0 14px #4dd0e1;
+  }
+
+  .info-box {
+    display: flex;
+    gap: 14px;
+    margin-bottom: 18px;
+    align-items: flex-start;
+  }
+
+  .icon {
+    width: 52px;
+    height: 52px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.12);
+    animation: pulse 2.6s infinite;
+  }
+
+  @keyframes pulse {
+    0%{transform:scale(1)}
+    50%{transform:scale(1.14)}
+    100%{transform:scale(1)}
+  }
+
+  iframe {
+    width: 100%;
+    height: 350px;
+    border: 0;
+    border-radius: 12px;
+    margin-top: 30px;
+  }
+
+  
+
+  /* Responsive Media Queries */
+  @media (max-width: 1024px) {
+    .grid {
+      grid-template-columns: 1fr;
+    }
+    .hero h1 {
+      font-size: 36px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .menu-btn {
+      display: block;
+    }
+
+    nav ul {
+      display: none;
+      flex-direction: column;
+      background: #222;
+      width: 100%;
+      padding: 20px 0;
+      text-align: center;
+      gap: 18px;
+    }
+
+    nav.active ul {
+      display: flex;
+      animation: fadeIn 0.4s ease;
+    }
+
+    nav ul li a {
+      font-size: 20px;
+    }
+
+    .hero {
+      height: 40vh;
+    }
+
+    .hero h1 {
+      font-size: 32px;
+    }
+
+    .grid {
+      grid-template-columns: 1fr;
+    }
+
+    .contact-card {
+      margin: 0 10px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .hero h1 {
+      font-size: 26px;
+    }
+    nav ul li a {
+      font-size: 18px;
+    }
+    .btn {
+      width: 100%;
+    }
+  }
+
+  /* ===== Dropdown Menu ===== */
+.dropdown {
+  position: relative;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: white;
+  list-style: none;
+  padding: 10px 0;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  border-radius: 8px;
+  z-index: 999;
+  min-width: 160px;
+}
+
+.dropdown-menu li {
+  text-align: left;
+  padding: 8px 20px;
+}
+
+.dropdown-menu li a {
+  color: #222;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-menu li a:hover {
+  color: #e91e63;
+  background: rgba(233, 30, 99, 0.05);
+}
+
+/* Show dropdown on hover (desktop) */
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+/* ===== Responsive Dropdown (for mobile toggle) ===== */
+@media (max-width: 950px) {
+  .dropdown-menu {
+    position: static;
+    display: none;
+    box-shadow: none;
+    background: none;
+    padding: 0;
+  }
+
+  .dropdown.open .dropdown-menu {
+    display: block;
+  }
+
+  .dropdown-menu li {
+    padding: 10px 0;
+  }
+}
+
+</style>
+</head>
+<body>
+
+<header>
+  <nav id="navbar">
+    <div class="logo"><img src="./logo.webp" alt="Stackly Logo"></div>
+    <div class="menu-btn" onclick="toggleMenu()">☰</div>
+
+    <ul>
+      <ul id="menu">
+        <li class="dropdown">
+          <a href="./hp2.html">home2 ▾</a>
+          <ul class="dropdown-menu">
+            <li><a href="./index.html">Home1</a></li>
+            
+          </ul>
+      <li><a href="buying.html">Buy</a></li>
+      <li><a href="selling.html">Sell</a></li>
+      <li><a href="product2.html">Product</a></li>
+      <li><a href="aboutus1.html">About Us</a></li>
+      <li><a href="contact1.html">Contact</a></li>
+      <li><a href="login1.html">Login</a></li>
+      <li><a href="dashbored2.html">Dashboard</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="hero-bg"></div>
+  <h1>Contact Us</h1>
+</section>
+
+<div class="container">
+  <div class="grid">
+    <div class="contact-card">
+      <h2>Send Us a Message</h2>
+      <form>
+        <input type="text" placeholder="Your Name" required />
+        <input type="email" placeholder="Your Email" required />
+        <input type="text" placeholder="Subject" />
+        <textarea rows="5" placeholder="Write your message..."></textarea>
+        <a href="hp2 404.html">
+          <button class="btn"><a href="hp2 404.html">Send Message</button>
+        </a>
+      </form>
+    </div>
+
+    <div class="contact-card">
+      <h2>Reach Us</h2>
+
+      <div class="info-box">
+        <div class="icon">📞</div>
+        <div>
+          <strong>Phone</strong><br />
+          +91 70107 92745
+        </div>
+      </div>
+
+      <div class="info-box">
+        <div class="icon">📧</div>
+        <div>
+          <strong>Email</strong><br />
+          info@thestackly.com
+        </div>
+      </div>
+
+      <div class="info-box">
+        <div class="icon">📍</div>
+        <div>
+          <strong>Location</strong><br />
+          MMR Complex, Salem, Tamil Nadu 636008
+        </div>
+      </div>
+
+      <div class="info-box">
+        <div class="icon">⏰</div>
+        <div>
+          <strong>Working Hours</strong><br />
+          Mon - Sat: 9am - 7pm
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<iframe
+  src="https://www.google.com/maps?q=Salem%20Tamil%20Nadu&output=embed"
+  allowfullscreen=""
+  loading="lazy">
+</iframe>
+
+
+
+<script>
+  function toggleMenu() {
+    document.getElementById('navbar').classList.toggle('active');
+  }
+  
+  const toggle = document.getElementById('menu-toggle');
+  const menu = document.getElementById('menu');
+  const dropdowns = document.querySelectorAll('.dropdown');
+
+  toggle.addEventListener('click', () => {
+    menu.classList.toggle('active');
+    toggle.classList.toggle('open');
+  });
+
+  // Handle dropdown toggle for mobile
+  dropdowns.forEach(drop => {
+    drop.addEventListener('click', (e) => {
+      if (window.innerWidth <= 950) {
+        e.preventDefault();
+        drop.classList.toggle('open');
+      }
+    });
+  });
+
+
+</script>
+
+</body>
+</html>

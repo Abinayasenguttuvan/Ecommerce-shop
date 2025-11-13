@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <meta name="description" content="About Shoply — our mission, values, team and journey. Animated, SEO-friendly About Us page for buyers & sellers." />
+  <title>About Us — Shoply Marketplace</title>
+
+  <style>
+    :root {
+      --bg:#f6f8fb;
+      --card:#fff;
+      --muted:#556;
+      --accent:#0ea5a4;
+      --glass:rgba(255,255,255,0.6);
+    }
+    [data-theme="dark"] {
+      --bg:#071021;
+      --card:#071826;
+      --muted:#9aa4b2;
+      --accent:#34d399;
+      --glass:rgba(255,255,255,0.03);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: var(--bg);
+      color: var(--muted);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ====== HEADER ====== */
+    header {
+      width: 100%;
+      background:#d6b77b;
+      color: #fff;
+      padding: 15px 0;
+      position: fixed;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+      animation: fadeInDown 0.6s ease;
+    }
+
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-30px);} 
+      to { opacity: 1; transform: translateY(0);} 
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      padding: 0 20px;
+      transition: all 0.3s ease;
+    }
+
+    .logo img {
+      width: 140px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 18px;
+      transition: 0.3s ease;
+    }
+
+    nav ul li a:hover {
+      color: #f3b200;
+    }
+
+    .menu-btn {
+      display: none;
+      font-size: 28px;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    /* ===== HERO SECTION ===== */
+    .hero {
+      min-height: 50vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 80px 20px;
+      text-align: center;
+      position: relative;
+      background: url('./hp2 aboutus.webp') no-repeat center center/cover;
+      color: #fff;
+    }
+
+    .hero .content {
+      max-width: 800px;
+      z-index: 2;
+    }
+
+    .title {
+      font-size: 42px;
+      font-weight: 800;
+      color: #fff;
+    }
+
+    .subtitle {
+      font-size: 18px;
+      color: #eee;
+      margin-top: 10px;
+    }
+
+    /* ===== MAIN GRID ===== */
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 30px 20px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 380px;
+      gap: 24px;
+    }
+
+    .card {
+      background: var(--card);
+      border-radius: 12px;
+      padding: 18px;
+      box-shadow: 0 10px 30px rgba(2,6,23,0.06);
+    }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+      gap: 12px;
+    }
+
+    .person {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .avatar {
+      width: 60px;
+      height: 60px;
+      border-radius: 10px;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .values {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .value {
+      flex: 1;
+      min-width: 160px;
+      padding: 12px;
+      border-radius: 10px;
+      background: rgba(255,255,255,0.6);
+    }
+
+    .timeline {
+      position: relative;
+      padding-left: 20px;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 8px;
+      top: 0;
+      bottom: 0;
+      width: 4px;
+      background: linear-gradient(180deg,var(--accent),#7c3aed);
+      border-radius: 4px;
+    }
+
+    .milestone {
+      position: relative;
+      margin-bottom: 10px;
+      padding-left: 10px;
+    }
+
+    .dot {
+      position: absolute;
+      left: -8px;
+      top: 10px;
+      width: 12px;
+      height: 12px;
+      background: var(--accent);
+      border-radius: 50%;
+    }
+
+    /* ===== Footer ===== */
+    .footer {
+      background: url('./hp2 footer.webp') no-repeat center center/cover;
+      color: white;
+    padding: 40px 20px 20px;
+    font-family: 'Poppins', sans-serif;
+    position: relative;
+  }
+  
+  /* Footer container layout */
+  .footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 30px;
+    max-width: 1200px;
+    margin: auto;
+  }
+  
+  /* Footer sections */
+  .footer-section {
+    flex: 1;
+    min-width: 250px;
+  }
+  
+  /* Logo + About section */
+  .footer-logo {
+    width: 200px;
+    margin-bottom: 10px;
+  }
+  .footer h3 {
+    margin-bottom: 10px;
+    color: #00e0b8;
+  }
+  
+  /* Links section */
+  .footer-section ul {
+    list-style: none;
+    padding: 0;
+  }
+  .footer-section ul li {
+    margin: 8px 0;
+  }
+  .footer-section ul li a {
+    text-decoration: none;
+    color: #ddd;
+    transition: color 0.3s;
+  }
+  .footer-section ul li a:hover {
+    color: #00e0b8;
+  }
+  
+  /* Contact + social */
+  .social-icons img {
+    width: 24px;
+    margin-right: 10px;
+    transition: transform 0.3s;
+  }
+  .social-icons img:hover {
+    transform: scale(1.2);
+  }
+  
+  /* Footer bottom */
+  .footer-bottom {
+    text-align: center;
+    border-top: 1px solid rgba(255,255,255,0.2);
+    padding-top: 15px;
+    margin-top: 20px;
+    font-size: 14px;
+    color: rgba(255,255,255,0.8);
+  }
+  
+
+
+    /* ===== MEDIA QUERIES ===== */
+    @media (max-width: 1024px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+      .hero .title {
+        font-size: 36px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        justify-content: space-between;
+      }
+
+      nav ul {
+        display: none;
+        flex-direction: column;
+        background: #d6b77b;
+        width: 100%;
+        text-align: center;
+        padding: 20px 0;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        z-index: 999;
+      }
+
+      nav ul.active {
+        display: flex;
+        animation: fadeIn 0.4s ease;
+      }
+
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(-10px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+
+      .menu-btn {
+        display: block;
+      }
+
+      .hero {
+        min-height: 40vh;
+        padding: 60px 15px;
+      }
+
+      .hero .title {
+        font-size: 28px;
+      }
+
+      .subtitle {
+        font-size: 16px;
+      }
+
+      .footer-container {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .title { font-size: 24px; }
+      .subtitle { font-size: 14px; }
+      .footer-section { min-width: 100%; }
+    }
+
+    /* ===== Dropdown Menu ===== */
+.dropdown {
+  position: relative;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: white;
+  list-style: none;
+  padding: 10px 0;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  border-radius: 8px;
+  z-index: 999;
+  min-width: 160px;
+}
+
+.dropdown-menu li {
+  text-align: left;
+  padding: 8px 20px;
+}
+
+.dropdown-menu li a {
+  color: #222;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-menu li a:hover {
+  color: #e91e63;
+  background: rgba(233, 30, 99, 0.05);
+}
+
+/* Show dropdown on hover (desktop) */
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+/* ===== Responsive Dropdown (for mobile toggle) ===== */
+@media (max-width: 950px) {
+  .dropdown-menu {
+    position: static;
+    display: none;
+    box-shadow: none;
+    background: none;
+    padding: 0;
+  }
+
+  .dropdown.open .dropdown-menu {
+    display: block;
+  }
+
+  .dropdown-menu li {
+    padding: 10px 0;
+  }
+}
+
+
+    
+  </style>
+</head>
+
+<body data-theme="light">
+  <header>
+    <nav id="navbar">
+      <div class="logo"><img src="./logo.webp" alt="Stackly Logo"></div>
+      <div class="menu-btn" onclick="toggleMenu()">☰</div>
+      <ul id="navLinks">
+        <ul id="menu">
+          <li class="dropdown">
+            <a href="./hp2.html">Home2 ▾</a>
+            <ul class="dropdown-menu">
+              <li><a href="./index.html">Home1</a></li>
+              
+            </ul>
+        <li><a href="buying.html">Buy</a></li>
+        <li><a href="selling.html">Sell</a></li>
+        <li><a href="product2.html">Product</a></li>
+        <li><a href="aboutus1.html">About Us</a></li>
+        <li><a href="contact1.html">Contact</a></li>
+        <li><a href="login1.html">Login</a></li>
+        <li><a href="dashbored2.html">Dashboard</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="content">
+      
+      <h1 class="title">We make buying & selling delightful — fast, secure and human.</h1>
+      <p class="subtitle">Shoply Marketplace connects honest sellers with smart shoppers. Built for reliability, scaled for growth.</p>
+    </div>
+  </section>
+
+  <main>
+    <div class="grid">
+      <section>
+        <div class="card">
+          <h3>Our Mission</h3>
+          <p>To empower individuals and small businesses by providing a dependable marketplace for buying and selling — with transparent fees, straightforward tools, and customer-first policies.</p>
+        </div>
+
+        <div class="card" style="margin-top:16px">
+          <h3>Our Values</h3>
+          <div class="values">
+            <div class="value">
+              <strong>Transparency</strong>
+              <p>Clear fees, honest reviews, accurate product details.</p>
+            </div>
+            <div class="value">
+              <strong>Quality</strong>
+              <p>We prioritize well-reviewed and verified listings.</p>
+            </div>
+            <div class="value">
+              <strong>Community</strong>
+              <p>Supporting sellers and customers fairly.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card" style="margin-top:16px">
+          <h3>Our Journey</h3>
+          <div class="timeline">
+            <div class="milestone"><div class="dot"></div><strong>2020</strong> — Founded with a mission.</div>
+            <div class="milestone"><div class="dot"></div><strong>2021</strong> — 10K+ sellers onboarded.</div>
+            <div class="milestone"><div class="dot"></div><strong>2023</strong> — Global reach & verified payments.</div>
+          </div>
+        </div>
+      </section>
+
+      <aside>
+        <div class="card">
+          <h3>Meet The Team</h3>
+          <div class="team-grid">
+            <div class="person"><div class="avatar"><img src="./nithiya.webp" alt=""></div><div><strong>Priya Menon</strong><br><small>CEO</small></div></div>
+            <div class="person"><div class="avatar"><img src="./arjun.webp" alt=""></div><div><strong>Arjun Rao</strong><br><small>CTO</small></div></div>
+            <div class="person"><div class="avatar"><img src="./sana.webp" alt=""></div><div><strong>Sana Iqbal</strong><br><small>Head of Ops</small></div></div>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-container">
+  
+      <!-- Column 1: Logo and About -->
+      <div class="footer-section about">
+        <img src="./logo.webp" alt="Stackly Logo" class="footer-logo" >
+      </div>
+  
+      
+  
+      <!-- Column 2: Quick Links -->
+      <div class="footer-section links">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="product.html">product </a></li>
+          <li><a href="about.html">about</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+  
+      <!-- Column 3: Contact -->
+      <div class="footer-section contact">
+        <h4>Get in Touch</h4>
+        
+        <p> MMR complex,salem,Tamil nadu 636008</p>
+        <p>Email: <a href="mailto:support@stackly.com">info@thestackly.com</a></p>
+        <p>Phone: +91 70107 92745</p>
+  
+        <div class="social-icons">
+          <a href="404.html"><i class="fab fa-facebook-f"></i></a>
+          <a href="404.html"><i class="fab fa-twitter"></i></a>
+          <a href="404.html"><i class="fab fa-linkedin-in"></i></a>
+          <a href="404.html"><i class="fab fa-instagram"></i></a>
+        </div>
+    
+     
+        <iframe
+        src="https://www.google.com/maps?q=Salem%20Tamil%20Nadu&output=embed"
+        width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy">
+      </iframe>
+  
+      
+            </div>
+            <div class="copyright">
+              <p>© 2025 Stackly | All Rights Reserved</p>
+            </div>
+        
+          </footer>
+
+  <script>
+    // Responsive menu toggle
+    function toggleMenu() {
+      document.getElementById('navLinks').classList.toggle('active');
+    }
+
+
+    
+  const toggle = document.getElementById('menu-toggle');
+  const menu = document.getElementById('menu');
+  const dropdowns = document.querySelectorAll('.dropdown');
+
+  toggle.addEventListener('click', () => {
+    menu.classList.toggle('active');
+    toggle.classList.toggle('open');
+  });
+
+  // Handle dropdown toggle for mobile
+  dropdowns.forEach(drop => {
+    drop.addEventListener('click', (e) => {
+      if (window.innerWidth <= 950) {
+        e.preventDefault();
+        drop.classList.toggle('open');
+      }
+    });
+  });
+</script>
+
+  </script>
+</body>
+</html>

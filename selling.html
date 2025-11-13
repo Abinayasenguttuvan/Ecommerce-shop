@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<title>Selling Page</title>
+<style>
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f7f7f7;
+  }
+
+  /* ===== Footer ===== */
+  .footer {
+    background: url('./hp2 footer.webp') no-repeat center center/cover;
+      color: white;
+    padding: 40px 20px 20px;
+    font-family: 'Poppins', sans-serif;
+    position: relative;
+  }
+  
+  /* Footer container layout */
+  .footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 30px;
+    max-width: 1200px;
+    margin: auto;
+  }
+  
+  /* Footer sections */
+  .footer-section {
+    flex: 1;
+    min-width: 250px;
+  }
+  
+  /* Logo + About section */
+  .footer-logo {
+    width: 200px;
+    margin-bottom: 10px;
+  }
+  .footer h3 {
+    margin-bottom: 10px;
+    color: #00e0b8;
+  }
+  
+  /* Links section */
+  .footer-section ul {
+    list-style: none;
+    padding: 0;
+  }
+  .footer-section ul li {
+    margin: 8px 0;
+  }
+  .footer-section ul li a {
+    text-decoration: none;
+    color: #ddd;
+    transition: color 0.3s;
+  }
+  .footer-section ul li a:hover {
+    color: #00e0b8;
+  }
+  
+  /* Contact + social */
+  .social-icons img {
+    width: 24px;
+    margin-right: 10px;
+    transition: transform 0.3s;
+  }
+  .social-icons img:hover {
+    transform: scale(1.2);
+  }
+  
+  /* Footer bottom */
+  .footer-bottom {
+    text-align: center;
+    border-top: 1px solid rgba(255,255,255,0.2);
+    padding-top: 15px;
+    margin-top: 20px;
+    font-size: 14px;
+    color: rgba(255,255,255,0.8);
+  }
+  
+
+  /* Header */
+  header {
+    width: 100%;
+    background: #d6b77b;
+    color: #fff;
+    padding: 15px 0;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+    animation: fadeInDown 0.6s ease;
+  }
+  @keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-30px);}
+    to { opacity: 1; transform: translateY(0);}
+  }
+  nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .logo img {
+    width: 150px;
+  }
+  nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    gap: 25px;
+  }
+  nav ul li {
+    position: relative;
+  }
+  nav a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    transition: 0.3s ease;
+  }
+  nav a:hover {
+    color: #f3b200;
+  }
+
+  .menu-btn {
+    display: none;
+    font-size: 28px;
+    color: white;
+    cursor: pointer;
+  }
+
+  /* Dropdown animation */
+  ul.dropdown {
+    display: none;
+    position: absolute;
+    top: 35px;
+    background: #333;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  }
+  nav ul li:hover .dropdown {
+    display: block;
+    animation: fadeIn 0.3s ease;
+  }
+  @keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+  }
+
+  .content {
+    margin-top: 120px;
+    padding: 20px;
+    text-align: center;
+  }
+
+  h1 {
+    font-size: 40px;
+    animation: fadeUp 0.8s ease;
+  }
+  @keyframes fadeUp {
+    from {opacity: 0; transform: translateY(30px);}
+    to {opacity: 1; transform: translateY(0);}
+  }
+
+  .container {
+    padding: 150px;
+    max-width: 1200px;
+    margin: auto;
+  }
+
+  /* Flip, Scroll & Slide animations remain same */
+  .sell-card {
+    background: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    animation: fadeUp 1s ease forwards;
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  .sell-card:hover {
+    transform: scale(1.02) rotateX(4deg);
+    transition: 0.4s;
+  }
+
+  .flip-area { perspective: 1000px; margin: 20px auto; width: 350px; }
+  .flip-box {
+    width: 100%; height: 200px; position: relative;
+    transform-style: preserve-3d;
+    animation: flipIn 2s infinite alternate ease-in-out;
+  }
+  @keyframes flipIn {
+    0% { transform: rotateY(0deg); }
+    100% { transform: rotateY(180deg); }
+  }
+
+  .scroll-text {
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    font-size: 22px;
+    color: #070707;
+    font-weight: bold;
+    animation: scrollLeft 10s linear infinite;
+  }
+  @keyframes scrollLeft {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+  }
+
+  .slide-box {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    padding: 10px;
+    scroll-snap-type: x mandatory;
+  }
+  .slide-item {
+    flex: 0 0 250px;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    scroll-snap-align: start;
+    animation: slideIn 1s ease;
+  }
+
+  /* === Responsive Navbar & Layout === */
+  @media (max-width: 900px) {
+    nav {
+      flex-direction: row;
+      justify-content: space-between;
+      padding: 0 20px;
+    }
+    .menu-btn {
+      display: block;
+    }
+    nav ul {
+      flex-direction: column;
+      width: 100%;
+      background: #333;
+      position: absolute;
+      top: 70px;
+      left: 0;
+      display: none;
+      padding: 20px 0;
+      text-align: center;
+    }
+    nav ul.show {
+      display: flex;
+      animation: slideDownMenu 0.5s ease;
+    }
+    @keyframes slideDownMenu {
+      from {opacity: 0; transform: translateY(-20px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+    nav ul li { margin: 10px 0; }
+    .container {
+      padding: 100px 20px;
+    }
+    .flip-area { width: 280px; }
+    .slide-box { flex-wrap: nowrap; }
+  }
+
+  @media (max-width: 600px) {
+    h1 { font-size: 28px; }
+    .scroll-text { font-size: 18px; }
+    .sell-card { padding: 15px; }
+    .slide-item { flex: 0 0 200px; }
+  }
+
+  /* Footer responsive */
+  @media (max-width: 768px) {
+    .footer-container {
+      flex-direction: column;
+      text-align: center;
+    }
+    .footer-section {
+      min-width: 100%;
+    }
+    .footer-logo {
+      width: 150px;
+      margin: auto;
+    }
+  }
+  /* ===== Dropdown Menu ===== */
+.dropdown {
+  position: relative;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: white;
+  list-style: none;
+  padding: 10px 0;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  border-radius: 8px;
+  z-index: 999;
+  min-width: 160px;
+}
+
+.dropdown-menu li {
+  text-align: left;
+  padding: 8px 20px;
+}
+
+.dropdown-menu li a {
+  color: #222;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-menu li a:hover {
+  color: #e91e63;
+  background: rgba(233, 30, 99, 0.05);
+}
+
+/* Show dropdown on hover (desktop) */
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+/* ===== Responsive Dropdown (for mobile toggle) ===== */
+@media (max-width: 950px) {
+  .dropdown-menu {
+    position: static;
+    display: none;
+    box-shadow: none;
+    background: none;
+    padding: 0;
+  }
+
+  .dropdown.open .dropdown-menu {
+    display: block;
+  }
+
+  .dropdown-menu li {
+    padding: 10px 0;
+  }
+}
+
+
+</style>
+</head>
+<body>
+
+<header>
+  <nav id="navbar">
+    <div class="logo"><img src="./logo.webp" alt="Stackly Logo"></div>
+    <div class="menu-btn" onclick="toggleMenu()">☰</div>
+    <ul id="menu">
+      <li class="dropdown">
+        <a href="./hp2.html">Home2 ▾</a>
+        <ul class="dropdown-menu">
+          <li><a href="./index.html">Home1</a></li>
+          
+        </ul>
+      <li><a href="buying.html">Buy</a></li>
+      <li><a href="selling.html">Sell</a></li>
+      <li><a href="product2.html">Product</a></li>
+      <li><a href="aboutus1.html">About Us</a></li>
+      <li><a href="contact1.html">Contact</a></li>
+      <li><a href="login1.html">Login</a></li>
+      <li><a href="dashbored2.html">Dashboard</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- === Your Original Selling Page Content === -->
+<div class="container" style="background-image:url('./blogs.webp');background-size:cover;background-position:center;background-repeat:no-repeat;">
+  <div class="sell-card">
+    <h2>Upload Your Product !!! </h2>
+    <p>Add product details, pricing, and images with smooth animations.</p>
+  </div>
+
+  <div class="scroll-text">🔥 Promote your product • Get more reach • Sell faster with amazing animations! 🔥</div>
+
+  <div class="flip-area">
+    <div class="flip-box">
+      <div class="front" style="position:absolute;width:100%;height:100%;background:#7f693d;border-radius:12px;display:flex;justify-content:center;align-items:center;font-size:20px;font-weight:bold;backface-visibility:hidden;">Quick Listing</div>
+      <div class="back" style="position:absolute;width:100%;height:100%;background:#aaa;color:#fff;border-radius:12px;display:flex;justify-content:center;align-items:center;font-size:20px;font-weight:bold;transform:rotateY(180deg);backface-visibility:hidden;">Fast Approval</div>
+    </div>
+  </div>
+
+  <h2>Featured Seller Tools</h2>
+  <div class="slide-box">
+    <div class="slide-item">📸 Add High Quality Photos</div>
+    <div class="slide-item">💸 Set Competitive Pricing</div>
+    <div class="slide-item">🚚 Set Delivery Options</div>
+    <div class="slide-item">📊 Track Sales Growth</div>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="footer-container">
+
+    <!-- Column 1: Logo and About -->
+    <div class="footer-section about">
+      <img src="./logo.webp" alt="Stackly Logo" class="footer-logo" >
+    </div>
+
+    
+
+    <!-- Column 2: Quick Links -->
+    <div class="footer-section links">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="product.html">product </a></li>
+        <li><a href="about.html">about</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+
+    <!-- Column 3: Contact -->
+    <div class="footer-section contact">
+      <h4>Get in Touch</h4>
+      
+      <p> MMR complex,salem,Tamil nadu 636008</p>
+      <p>Email: <a href="mailto:support@stackly.com">info@thestackly.com</a></p>
+      <p>Phone: +91 70107 92745</p>
+
+      <div class="social-icons">
+        <a href="404.html"><i class="fab fa-facebook-f"></i></a>
+        <a href="404.html"><i class="fab fa-twitter"></i></a>
+        <a href="404.html"><i class="fab fa-linkedin-in"></i></a>
+        <a href="404.html"><i class="fab fa-instagram"></i></a>
+      </div>
+  
+   
+      <iframe
+      src="https://www.google.com/maps?q=Salem%20Tamil%20Nadu&output=embed"
+      width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy">
+    </iframe>
+
+    
+          </div>
+          <div class="copyright">
+            <p>© 2025 Stackly | All Rights Reserved</p>
+          </div>
+      
+        </footer>
+<script>
+  // Responsive menu toggle
+  function toggleMenu() {
+    const navUl = document.querySelector('nav ul');
+    navUl.classList.toggle('show');
+  }
+  
+  const toggle = document.getElementById('menu-toggle');
+  const menu = document.getElementById('menu');
+  const dropdowns = document.querySelectorAll('.dropdown');
+
+  toggle.addEventListener('click', () => {
+    menu.classList.toggle('active');
+    toggle.classList.toggle('open');
+  });
+
+  // Handle dropdown toggle for mobile
+  dropdowns.forEach(drop => {
+    drop.addEventListener('click', (e) => {
+      if (window.innerWidth <= 950) {
+        e.preventDefault();
+        drop.classList.toggle('open');
+      }
+    });
+  });
+</script>
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,1116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <title>Buying Page</title>
+  <style>
+/* ===== Base Styles (Your existing code, unchanged) ===== */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f7f7f7;
+}
+header {
+  width: 100%;
+  background: #d6b77b;
+  color: #fff;
+  padding: 15px 0;
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+  animation: fadeInDown 0.6s ease;
+}
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-30px);} 
+  to { opacity: 1; transform: translateY(0);} 
+}
+nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.logo {
+  font-size: 26px;
+  font-weight: bold;
+  color: #f3b200;
+}
+nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  gap: 25px;
+}
+nav ul li {
+  position: relative;
+}
+nav a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 18px;
+  transition: 0.3s ease;
+}
+nav a:hover {
+  color: #f3b200;
+}
+ul.dropdown {
+  display: none;
+  position: absolute;
+  top: 35px;
+  background: #333;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+nav ul li:hover .dropdown {
+  display: block;
+  animation: fadeIn 0.3s ease;
+}
+@keyframes fadeIn { from {opacity: 0;} to {opacity: 1;} }
+.content { margin-top: 120px; padding: 20px; text-align: center; }
+h1 { font-size: 40px; animation: fadeUp 0.8s ease; }
+@keyframes fadeUp { from {opacity: 0; transform: translateY(30px);} to {opacity: 1; transform: translateY(0);} }
+
+/* ===== Footer ===== */
+.footer {
+  background:url('./hp1\ footer.webp');
+    color: white;
+    padding: 40px 20px 20px;
+    font-family: 'Poppins', sans-serif;
+    position: relative;
+  }
+  
+  /* Footer container layout */
+  .footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 30px;
+    max-width: 1200px;
+    margin: auto;
+  }
+  
+  /* Footer sections */
+  .footer-section {
+    flex: 1;
+    min-width: 250px;
+  }
+  
+  /* Logo + About section */
+  .footer-logo {
+    width: 200px;
+    margin-bottom: 10px;
+  }
+  .footer h3 {
+    margin-bottom: 10px;
+    color: #00e0b8;
+  }
+  
+  /* Links section */
+  .footer-section ul {
+    list-style: none;
+    padding: 0;
+  }
+  .footer-section ul li {
+    margin: 8px 0;
+  }
+  .footer-section ul li a {
+    text-decoration: none;
+    color: #ddd;
+    transition: color 0.3s;
+  }
+  .footer-section ul li a:hover {
+    color: #00e0b8;
+  }
+  
+  /* Contact + social */
+  .social-icons img {
+    width: 24px;
+    margin-right: 10px;
+    transition: transform 0.3s;
+  }
+  .social-icons img:hover {
+    transform: scale(1.2);
+  }
+  
+  /* Footer bottom */
+  .footer-bottom {
+    text-align: center;
+    border-top: 1px solid rgba(255,255,255,0.2);
+    padding-top: 15px;
+    margin-top: 20px;
+    font-size: 14px;
+    color: rgba(255,255,255,0.8);
+  }
+  
+
+
+/* Search Bar */
+.search-bar { margin: 20px auto; display: flex; justify-content: center; }
+.search-bar input {
+  padding: 10px;
+  width: 300px;
+  border: 2px solid #444;
+  border-radius: 5px;
+  outline: none;
+}
+
+/* Product Section */
+.container { padding-top: 90px; }
+.product-section { display: flex; gap: 40px; padding: 20px; flex-wrap: wrap; justify-content: center; }
+.product-images { width: 45%; min-width: 320px; }
+.product-images img { width: 100%; border-radius: 10px; cursor: zoom-in; transition: transform .3s ease; }
+.product-images img:hover { transform: scale(1.1); }
+
+.image-slider { display: flex; gap: 10px; margin-top: 15px; justify-content: center; flex-wrap: wrap; }
+.image-slider img { width: 22%; border-radius: 6px; cursor: pointer; transition: 0.3s; }
+.image-slider img:hover { transform: scale(1.1); }
+
+.product-info { width: 45%; min-width: 320px; animation: fadeLeft 0.9s ease forwards; opacity: 0; }
+@keyframes fadeLeft { from { opacity: 0; transform: translateX(-50px); } to { opacity: 1; transform: translateX(0); } }
+
+.price { font-size: 24px; color: #e60073; margin: 10px 0; }
+
+/* Stars */
+.stars span { font-size: 30px; cursor: pointer; transition: color .3s ease; }
+.stars span:hover, .stars span:hover ~ span { color: gold; }
+
+/* Buttons */
+.btn { padding: 12px 20px; background: #111; color: white; border: none; cursor: pointer; border-radius: 6px; margin-right: 10px; }
+.btn:hover { background: #e60073; }
+
+/* Stock */
+.stock { font-size: 18px; color: green; animation: blink 1.3s infinite; }
+@keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: .4; } }
+
+/* Modal */
+.modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); justify-content: center; align-items: center; }
+.modal-content { background: white; padding: 20px; width: 40%; border-radius: 10px; animation: fadeUp 0.6s ease; }
+
+/* Footer */
+.footer {
+  background: url('./hp2 footer.webp') no-repeat center center/cover;
+  color: white;
+  padding: 40px 20px 20px;
+  font-family: 'Poppins', sans-serif;
+}
+.footer-container { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 30px; max-width: 1200px; margin: auto; }
+.footer-section { flex: 1; min-width: 250px; }
+.footer-logo { width: 80px; margin-bottom: 10px; }
+.footer h3 { color: #00e0b8; }
+
+/* Responsive Menu Button */
+.menu-btn { display: none; font-size: 28px; color: white; cursor: pointer; }
+
+/* ===== RESPONSIVE MEDIA QUERIES ADDED BELOW ===== */
+
+/* ---------- Tablets (<=1024px) ---------- */
+@media (max-width: 1024px) {
+  nav ul { gap: 15px; }
+  .product-section { flex-direction: column; align-items: center; }
+  .product-images, .product-info { width: 80%; }
+  .modal-content { width: 60%; }
+  .related-grid { justify-content: center; }
+}
+
+/* ---------- Mobile (<=768px) ---------- */
+@media (max-width: 768px) {
+  nav { justify-content: space-between; padding: 0 20px; }
+  .menu-btn { display: block; }
+  nav ul {
+    display: none;
+    flex-direction: column;
+    background: #222;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 100%;
+    text-align: center;
+    padding: 20px 0;
+  }
+  nav.active ul { display: flex; }
+  nav ul li { margin: 10px 0; }
+  .product-section { flex-direction: column; }
+  .product-images, .product-info { width: 100%; }
+  .product-images img { border-radius: 8px; }
+  .modal-content { width: 80%; }
+  .related-grid { flex-direction: column; align-items: center; }
+  .footer-container { flex-direction: column; text-align: center; }
+}
+
+/* ---------- Small Mobile (<=480px) ---------- */
+@media (max-width: 480px) {
+  h1 { font-size: 26px; }
+  nav a { font-size: 16px; }
+  .btn { padding: 10px 14px; font-size: 14px; }
+  .product-info h2 { font-size: 20px; }
+  .price { font-size: 20px; }
+  .image-slider img { width: 45%; }
+  .footer-section { min-width: 100%; }
+  iframe { height: 180px; }
+}
+
+/* ===== Dropdown Menu ===== */
+.dropdown {
+  position: relative;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: white;
+  list-style: none;
+  padding: 10px 0;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  border-radius: 8px;
+  z-index: 999;
+  min-width: 160px;
+}
+
+.dropdown-menu li {
+  text-align: left;
+  padding: 8px 20px;
+}
+
+.dropdown-menu li a {
+  color: #222;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-menu li a:hover {
+  color: #e91e63;
+  background: rgba(233, 30, 99, 0.05);
+}
+
+/* Show dropdown on hover (desktop) */
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+/* ===== Responsive Dropdown (for mobile toggle) ===== */
+@media (max-width: 950px) {
+  .dropdown-menu {
+    position: static;
+    display: none;
+    box-shadow: none;
+    background: none;
+    padding: 0;
+  }
+
+  .dropdown.open .dropdown-menu {
+    display: block;
+  }
+
+  .dropdown-menu li {
+    padding: 10px 0;
+  }
+}
+
+  </style>
+</head>
+
+<body>
+  <!-- 🟢 YOUR ORIGINAL CONTENT BELOW (unchanged) -->
+  <!-- ===== HEADER + NAV ===== -->
+  <header>
+    <nav id="navbar">
+      <div class="logo"><img src="./logo.webp" alt="Stackly Logo" style="width: 150px;"></div>
+      <div class="menu-btn" onclick="toggleMenu()">☰</div>
+      <ul>
+        <ul id="menu">
+          <li class="dropdown">
+            <a href="./hp2.html">Home2 ▾</a>
+            <ul class="dropdown-menu">
+              <li><a href="./index.html">Home1</a></li>
+              
+            </ul>
+        <li><a href="buying.html">Buy</a></li>
+        <li><a href="selling.html">Sell</a></li>
+        <li><a href="product2.html">Product</a></li>
+        <li><a href="aboutus1.html">About Us</a></li>
+        <li><a href="contact1.html">Contact</a></li>
+        <li><a href="login1.html">Login</a></li>
+        <li><a href="dashbored2.html">Dashboard</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="container">
+    <section class="product-section">
+  
+      <!-- Image gallery & zoom -->
+      <div class="product-images">
+        <img id="mainImg" src="./hp2 image1.webp" />
+  
+        <div class="image-slider">
+          <img onclick="changeImg('img/product1.jpg')" src="./hp2 image2.webp" />
+          <img onclick="changeImg('img/product2.jpg')" src="./hp2 image3.webp" />
+          <img onclick="changeImg('img/product3.jpg')" src="./hp2 image4.webp" />
+          <img onclick="changeImg('img/product4.jpg')" src="./hp2 image5.webp" />
+        </div>
+      </div>
+  
+      <!-- Product Info -->
+      <div class="product-info">
+        <h2>Premium Stylish Product</h2>
+        <p class="price">₹1,299</p>
+        <p class="stock">✅ In Stock (Only 8 left!)</p>
+  
+        <div class="stars">
+          <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+        </div>
+  
+        <a href="./hp2 404.html">
+  
+        <button class="btn" onclick="addToCart()">Add to Cart</button>
+        <button class="btn" onclick="document.getElementById('reviewModal').style.display='flex'">Add Review</button>
+        
+        <button class="btn" onclick="Buynow()">Buy now</button></a>
+      </div>
+  
+    </section>
+  
+    <!-- Review Modal -->
+    <div id="reviewModal" class="modal">
+      <div class="modal-content">
+        <h3>Add Your Review</h3>
+        <input type="text" placeholder="Your Name" style="width:100%; padding:10px" />
+        <textarea placeholder="Write your review..." style="width:100%; height:100px; margin-top:10px;"></textarea>
+        <button class="btn" style="margin-top:10px" onclick="closeModal()">Submit</button>
+      </div>
+    </div>
+  
+  </div>
+  
+  <script>
+    // Change image function
+    function changeImg(src) {
+      document.getElementById('mainImg').src = src;
+    }
+  
+    // Add to cart counter
+    let cart = 0;
+    function addToCart() {
+      cart++;
+      document.querySelector('.cart-counter').innerText = cart;
+    }
+  
+    // Close modal
+    function closeModal() {
+      document.getElementById('reviewModal').style.display = 'none';
+    }
+  
+    // Close when clicking outside
+    window.onclick = function(event) {
+      let modal = document.getElementById('reviewModal');
+      if (event.target === modal) modal.style.display = "none";
+    }
+  </script>
+  
+  
+  
+  <!-- Related Products Section -->
+  <section class="related-products" style="padding:20px;">
+    <h2>Related Products</h2>
+    <div class="related-grid" style="display:flex; gap:20px; flex-wrap:wrap;">
+      <div class="related-card" style="width:200px; background:white; padding:10px; border-radius:10px; box-shadow:0 0 10px #ddd;">
+        <img src="./hp2 image6.webp" style="width:100%; border-radius:8px;">
+        <h4>Stylish Watch</h4>
+        <p>₹999</p>
+      </div>
+      <div class="related-card" style="width:200px; background:white; padding:10px; border-radius:10px; box-shadow:0 0 10px #ddd;">
+        <img src="./hp2 dress1.webp" style="width:100%; border-radius:8px;">
+        <h4>Trendy Dress</h4>
+        <p>₹1,499</p>
+      </div>
+      <div class="related-card" style="width:200px; background:white; padding:10px; border-radius:10px; box-shadow:0 0 10px #ddd;">
+        <img src="./hp2 handbag1.webp" style="width:100%; border-radius:8px;">
+        <h4>Handbag</h4>
+        <p>₹899</p>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Frequently Bought Together -->
+  <section style="padding:20px; background:#fff;">
+    <h2>Frequently Bought Together</h2>
+    <p>Buy these products together and get an extra 10% off!</p>
+    <div style="display:flex; gap:20px;">
+      <img src="./hp2 shoe.webp" style="width:120px; border-radius:8px;">
+      <span style="font-size:30px;">+</span>
+      <img src="./hp2 glass.webp" style="width:120px; border-radius:8px;">
+      <span style="font-size:30px;">+</span>
+      <img src="./hp2 bracelet.webp" style="width:120px; border-radius:8px;">
+    </div>
+  </section>
+  
+  <!-- Delivery Date Calculator -->
+  <section style="padding:20px;">
+    <h2>Delivery Date Calculator</h2>
+    <input type="date" id="deliveryDate" />
+    <button class="btn" onclick="calculateDelivery()">Check Delivery</button>
+    <p id="deliveryResult"></p>
+  </section>
+  
+  <!-- Offer Countdown Timer -->
+  <!-- <section style="padding:20px; background:#ffe6f2; text-align:center;">
+    <h2>Limited Time Offer!</h2>
+    <h3 id="countdown" style="font-size:28px;"></h3>
+  </section> -->
+  
+  <!-- Sticky Buy Now Bar -->
+  <!-- <div class="sticky-buybar" style="position:fixed; bottom:0; left:0; width:100%; background:#111; color:white; padding:15px; display:flex; justify-content:space-between; align-items:center; z-index:9999;">
+    <span style="font-size:18px;">Premium Stylish Product - ₹1,299</span>
+    <button class="btn" style="background:#e60073;">Buy Now</button>
+  </div> -->
+  
+  <script>
+  // Delivery Calculator Script
+  function calculateDelivery() {
+    let input = document.getElementById('deliveryDate').value;
+    let result = document.getElementById('deliveryResult');
+    if (!input) {
+      result.innerText = "Please select a date";
+      return;
+    }
+    result.innerText = "Estimated delivery by: " + input;
+  }
+  
+  // Countdown Timer Script
+  let countdownTimer = setInterval(function(){
+    let endDate = new Date().getTime() + 86400000; // 24 hrs
+    let now = new Date().getTime();
+    let distance = endDate - now;
+  
+    let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    let seconds = Math.floor((distance % (1000 * 60)) / 1000);
+  
+    document.getElementById('countdown').innerText = hours + "h " + minutes + "m " + seconds + "s ";
+  
+    if (distance < 0) {
+      clearInterval(countdownTimer);
+      document.getElementById('countdown').innerText = "Offer Ended";
+    }
+  }, 1000);
+  </script>
+  
+    <!-- Advanced Animations Added -->
+    <script>
+      // Image Zoom & Pan
+      const zoomImg = document.querySelector('.product-main-img');
+      if (zoomImg) {
+        zoomImg.addEventListener('mousemove', function(e) {
+          const rect = zoomImg.getBoundingClientRect();
+          const x = ((e.clientX - rect.left) / rect.width) * 100;
+          const y = ((e.clientY - rect.top) / rect.height) * 100;
+          zoomImg.style.transformOrigin = `${x}% ${y}%`;
+          zoomImg.style.transform = 'scale(2)';
+        });
+        zoomImg.addEventListener('mouseleave', function() {
+          zoomImg.style.transform = 'scale(1)';
+          zoomImg.style.transformOrigin = 'center center';
+        });
+      }
+  
+      // 3D Rotation/Tilt
+      document.querySelectorAll('.product-card').forEach(card => {
+        card.addEventListener('mousemove', e => {
+          const rect = card.getBoundingClientRect();
+          let x = (e.clientX - rect.left) / rect.width - 0.5;
+          let y = (e.clientY - rect.top) / rect.height - 0.5;
+          card.style.transform = `rotateX(${y * 10}deg) rotateY(${x * 10}deg)`;
+        });
+        card.addEventListener('mouseleave', () => {
+          card.style.transform = 'rotateX(0) rotateY(0)';
+        });
+      });
+  
+      // Card Flip Animation
+      document.querySelectorAll('.flip-card').forEach(card => {
+        card.addEventListener('click', () => {
+          card.classList.toggle('flipped');
+        });
+      });
+  
+      // Button Press Simulation
+      document.querySelectorAll('button').forEach(btn => {
+        btn.addEventListener('mousedown', () => {
+          btn.style.transform = 'scale(0.95)';
+        });
+        btn.addEventListener('mouseup', () => {
+          btn.style.transform = 'scale(1)';
+        });
+      });
+  
+      // Parallax Scrolling
+      window.addEventListener('scroll', () => {
+        document.querySelectorAll('.parallax').forEach(el => {
+          let speed = el.getAttribute('data-speed');
+          el.style.transform = `translateY(${window.scrollY * speed}px)`;
+        });
+      });
+  
+      // Text Zoom Animation
+      document.querySelectorAll('.zoom-text').forEach(txt => {
+        txt.addEventListener('mouseover', () => {
+          txt.style.transform = 'scale(1.2)';
+        });
+        txt.addEventListener('mouseleave', () => {
+          txt.style.transform = 'scale(1)';
+        });
+      });
+    </script>
+    <!-- Advanced Neon Glow + GSAP + Scroll Animations -->
+    <script>
+      // Neon Glow Hover
+      document.querySelectorAll('.product-card, .neon-btn').forEach(el => {
+        el.addEventListener('mouseenter', () => {
+          el.style.boxShadow = '0 0 15px #0ff, 0 0 25px #0ff';
+        });
+        el.addEventListener('mouseleave', () => {
+          el.style.boxShadow = 'none';
+        });
+      });
+  
+      // Scroll-triggered fade/slide/scale animations
+      const revealElements = document.querySelectorAll('.reveal');
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('show');
+          }
+        });
+      }, { threshold: 0.2 });
+  
+      revealElements.forEach(el => observer.observe(el));
+  
+      // GSAP smooth scrolling effects (fallback animation)
+      window.addEventListener('scroll', () => {
+        document.querySelectorAll('.gsap-fade').forEach(el => {
+          const speed = el.getAttribute('data-speed') || 0.2;
+          el.style.opacity = 1 - (window.scrollY * speed / 500);
+          el.style.transform = `translateY(${window.scrollY * speed}px)`;
+        });
+      });
+  
+      // Sticky animated price bar
+      const stickyBar = document.querySelector('.buy-now-sticky');
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) stickyBar.classList.add('active');
+        else stickyBar.classList.remove('active');
+      });
+  
+      // Dynamic real-time stock counter
+      const stockDisplay = document.querySelector('.live-stock');
+      if (stockDisplay) {
+        let stock = Math.floor(Math.random() * 50) + 10;
+        stockDisplay.textContent = stock + ' items in stock';
+        setInterval(() => {
+          stock -= Math.floor(Math.random() * 2);
+          if (stock < 5) stock = Math.floor(Math.random() * 30) + 10;
+          stockDisplay.textContent = stock + ' items in stock';
+        }, 3000);
+      }
+  
+      // Auto-typing text animation
+      const typingText = document.querySelector('.typing-text');
+      if (typingText) {
+        const fullText = typingText.getAttribute('data-text');
+        let i = 0;
+        function type() {
+          typingText.textContent = fullText.substring(0, i);
+          i++;
+          if (i <= fullText.length) setTimeout(type, 100);
+        }
+        type();
+      }
+  
+      // Pulse effect for buttons
+      document.querySelectorAll('.pulse-btn').forEach(btn => {
+        btn.addEventListener('mouseenter', () => {
+          btn.classList.add('pulse');
+        });
+        btn.addEventListener('mouseleave', () => {
+          btn.classList.remove('pulse');
+        });
+      });
+    </script>
+    <!-- Full-page scroll animations + Tilt gallery + Dark/Light mode toggle -->
+    <script>
+      /*============================================
+        FULL PAGE SCROLL ANIMATIONS (Fade + Slide)
+      ============================================*/
+      const scrollSections = document.querySelectorAll('.scroll-section');
+      const scrollObserver = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) entry.target.classList.add('visible');
+        });
+      }, { threshold: 0.3 });
+  
+      scrollSections.forEach(sec => scrollObserver.observe(sec));
+  
+      /*============================================
+        TILT-BASED PRODUCT GALLERY SLIDER
+      ============================================*/
+      const tiltImages = document.querySelectorAll('.tilt-gallery img');
+  
+      tiltImages.forEach(img => {
+        img.addEventListener('mousemove', e => {
+          const rect = img.getBoundingClientRect();
+          let x = (e.clientX - rect.left) / rect.width - 0.5;
+          let y = (e.clientY - rect.top) / rect.height - 0.5;
+          img.style.transform = `rotateX(${y * 15}deg) rotateY(${x * 15}deg) scale(1.1)`;
+        });
+        img.addEventListener('mouseleave', () => {
+          img.style.transform = 'rotateX(0) rotateY(0) scale(1)';
+        });
+      });
+  
+      /*============================================
+        DARK/LIGHT MODE TOGGLE
+      ============================================*/
+      const modeBtn = document.querySelector('.mode-toggle');
+      if (modeBtn) {
+        modeBtn.addEventListener('click', () => {
+          document.body.classList.toggle('dark-mode');
+          if (document.body.classList.contains('dark-mode')) {
+            modeBtn.innerHTML = '☀️ Light Mode';
+          } else {
+            modeBtn.innerHTML = '🌙 Dark Mode';
+          }
+        });
+      }
+    </script>
+    <!-- Flip Card + 3D Rotation + Text Scroll + Card Slide Animations -->
+    <style>
+      /* Flip Card */
+      .flip-container {
+        perspective: 1000px;
+        width: 300px;
+        height: 350px;
+        margin: 20px auto;
+      }
+      .flip-card-inner {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        transition: transform 0.8s;
+        transform-style: preserve-3d;
+      }
+      .flip-container:hover .flip-card-inner {
+        transform: rotateY(180deg);
+      }
+      .flip-front, .flip-back {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        backface-visibility: hidden;
+        border-radius: 12px;
+        overflow: hidden;
+      }
+      .flip-back {
+        transform: rotateY(180deg);
+        background: #222;
+        color: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 15px;
+      }
+  
+      /* ===== Footer ===== */
+    .footer {
+      background: url('./hp2 footer.webp') no-repeat center center/cover;
+      color: white;
+    padding: 40px 20px 20px;
+    font-family: 'Poppins', sans-serif;
+    position: relative;
+  }
+  
+  /* Footer container layout */
+  .footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 30px;
+    max-width: 1200px;
+    margin: auto;
+  }
+  
+  /* Footer sections */
+  .footer-section {
+    flex: 1;
+    min-width: 250px;
+  }
+  
+  /* Logo + About section */
+  .footer-logo {
+    width: 200px;
+    margin-bottom: 10px;
+  }
+  .footer h3 {
+    margin-bottom: 10px;
+    color: #00e0b8;
+  }
+  
+  /* Links section */
+  .footer-section ul {
+    list-style: none;
+    padding: 0;
+  }
+  .footer-section ul li {
+    margin: 8px 0;
+  }
+  .footer-section ul li a {
+    text-decoration: none;
+    color: #ddd;
+    transition: color 0.3s;
+  }
+  .footer-section ul li a:hover {
+    color: #00e0b8;
+  }
+  
+  /* Contact + social */
+  .social-icons img {
+    width: 24px;
+    margin-right: 10px;
+    transition: transform 0.3s;
+  }
+  .social-icons img:hover {
+    transform: scale(1.2);
+  }
+  
+  /* Footer bottom */
+  .footer-bottom {
+    text-align: center;
+    border-top: 1px solid rgba(255,255,255,0.2);
+    padding-top: 15px;
+    margin-top: 20px;
+    font-size: 14px;
+    color: rgba(255,255,255,0.8);
+  }
+  
+
+    /* === HERO TEXT ANIMATIONS === */
+  .animate-text {
+    font-size: 2.8rem;
+    background: linear-gradient(90deg, #0a74da, #64b5f6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradientMove 3s linear infinite;
+  }
+  
+  .animate-subtext {
+    font-size: 1.2rem;
+    margin-top: 10px;
+    animation: fadeIn 2s ease forwards;
+    opacity: 0;
+  }
+  
+  @keyframes gradientMove {
+    from { background-position: 0%; }
+    to { background-position: 100%; }
+  }
+  
+  @keyframes fadeIn {
+    to { opacity: 1; }
+  }
+  
+  /* === PULSE EFFECT FOR BUTTON === */
+  .pulse {
+    background: #0a74da;
+    color: #fff;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 30px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    position: relative;
+  }
+  
+  .pulse:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(10, 116, 218, 0.4);
+  }
+  
+  /* ---------- Best Sellers Section ---------- */
+  .best-sellers {
+    padding: 100px 80px;
+    background: linear-gradient(180deg, #f9f9f9, #fff);
+    text-align: center;
+    overflow: hidden;
+  }
+  
+  .best-sellers h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.8rem;
+    margin-bottom: 10px;
+    color: var(--primary-color);
+  }
+  
+  .section-tagline {
+    font-size: 1.1rem;
+    margin-bottom: 50px;
+    color: #777;
+  }
+  
+  /* Container */
+  .category-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+    gap: 40px;
+    justify-items: center;
+  }
+  
+  /* ---------- Animated Flip Cards ---------- */
+  .category-card {
+    width: 270px;
+    height: 360px;
+    perspective: 1200px;
+    transition: transform 0.4s ease;
+  }
+  
+  /* Lift and rotate slightly on hover */
+  .category-card:hover {
+    transform: scale(1.05) rotateY(5deg) rotateX(5deg);
+  }
+  
+  /* Inner rotation setup */
+  .card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.9s cubic-bezier(0.4, 0.2, 0.2, 1);
+  }
+  
+  .category-card:hover .card-inner {
+    transform: rotateY(180deg);
+  }
+  
+  /* Front face */
+  .card-front,
+  .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 18px;
+    overflow: hidden;
+    backface-visibility: hidden;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Front styling */
+  .card-front {
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    color: #fff;
+    font-size: 1.4rem;
+    font-weight: 600;
+    padding: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    background-blend-mode: multiply;
+    background-color: rgba(0, 0, 0, 0.2);
+    transition: background 0.3s ease;
+  }
+  
+  .card-front:hover {
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  
+  /* Back styling */
+  .card-back {
+    /* background: linear-gradient(135deg, #111, #222); */
+    background:#7f693d;
+     color: #fff;
+    transform: rotateY(180deg);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 25px;
+    text-align: center;
+  }
+  
+  .card-back h3 {
+    color: var(--primary-color);
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+  }
+  
+  .card-back p {
+    font-size: 14px;
+    color: #ccc;
+    margin-bottom: 20px;
+  }
+  
+  .card-back .btn {
+    background: var(--primary-color);
+    color:#7f693d;
+    padding: 10px 22px;
+    border-radius: 25px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+  
+  .card-back .btn:hover {
+    background:#d6b77b;
+    color: var(--primary-color);
+  }
+  
+  /* Smooth floating animation (optional) */
+  @keyframes floatCard {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-8px); }
+    100% { transform: translateY(0px); }
+  }
+  
+  .category-card {
+    animation: floatCard 6s ease-in-out infinite;
+  }
+  
+  
+      /* 3D Rotation Card on Hover */
+      .rotate-card {
+        transition: transform 0.3s ease;
+        transform-style: preserve-3d;
+      }
+      .rotate-card:hover {
+        transform: rotateX(10deg) rotateY(-10deg) scale(1.05);
+      }
+  
+      /* Text Scrolling Animation */
+      .scroll-text {
+        overflow: hidden;
+        white-space: nowrap;
+        animation: scrollText 12s linear infinite;
+        font-size: 20px;
+        font-weight: bold;
+        color: #ff4081;
+      }
+      @keyframes scrollText {
+        0% { transform: translateX(100%); }
+        100% { transform: translateX(-100%); }
+      }
+  
+      /* Card Sliding Animation */
+      .slide-card {
+        opacity: 0;
+        transform: translateY(50px);
+        transition: all 0.8s ease-out;
+      }
+      .slide-card.show {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    </style>
+  
+    <script>
+      // Slide-in Animation on Scroll
+      const slideCards = document.querySelectorAll('.slide-card');
+      const slideObserver = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('show');
+          }
+        });
+      }, { threshold: 0.2 });
+  
+      slideCards.forEach(card => slideObserver.observe(card));
+    </script>
+    <footer class="footer">
+      <div class="footer-container">
+    
+        <!-- Column 1: Logo and About -->
+        <div class="footer-section about">
+          <img src="./logo.webp" alt="Stackly Logo" class="footer-logo" >
+        </div>
+    
+        
+    
+        <!-- Column 2: Quick Links -->
+        <div class="footer-section links">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="product.html">product </a></li>
+            <li><a href="about.html">about</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+    
+        <!-- Column 3: Contact -->
+        <div class="footer-section contact">
+          <h4>Get in Touch</h4>
+          
+          <p> MMR complex,salem,Tamil nadu 636008</p>
+          <p>Email: <a href="mailto:support@stackly.com">info@thestackly.com</a></p>
+          <p>Phone: +91 70107 92745</p>
+    
+          <div class="social-icons">
+            <a href="404.html"><i class="fab fa-facebook-f"></i></a>
+            <a href="404.html"><i class="fab fa-twitter"></i></a>
+            <a href="404.html"><i class="fab fa-linkedin-in"></i></a>
+            <a href="404.html"><i class="fab fa-instagram"></i></a>
+          </div>
+      
+       
+          <iframe
+          src="https://www.google.com/maps?q=Salem%20Tamil%20Nadu&output=embed"
+          width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy">
+        </iframe>
+    
+        
+              </div>
+              <div class="copyright">
+                <p>© 2025 Stackly | All Rights Reserved</p>
+              </div>
+          
+            </footer>
+  
+  </body>
+  </html>
+  
+
+<script>
+function toggleMenu() {
+  document.getElementById("navbar").classList.toggle("active");
+}
+
+
+  const toggle = document.getElementById('menu-toggle');
+  const menu = document.getElementById('menu');
+  const dropdowns = document.querySelectorAll('.dropdown');
+
+  toggle.addEventListener('click', () => {
+    menu.classList.toggle('active');
+    toggle.classList.toggle('open');
+  });
+
+  // Handle dropdown toggle for mobile
+  dropdowns.forEach(drop => {
+    drop.addEventListener('click', (e) => {
+      if (window.innerWidth <= 950) {
+        e.preventDefault();
+        drop.classList.toggle('open');
+      }
+    });
+  });
+</script>
+
+
+</body>
+</html>
