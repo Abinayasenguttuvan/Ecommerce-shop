@@ -14,7 +14,7 @@
       padding: 0;
       box-sizing: border-box;
     }
-    
+
     body {
       font-family: "Poppins", sans-serif;
       line-height: 1.6;
@@ -234,6 +234,11 @@
       overflow-x: auto;
       gap: 15px;
       margin-top: 30px;
+      scroll-snap-type: x mandatory;
+    }
+
+    .runway-item {
+      scroll-snap-align: center;
     }
 
     .runway-item img {
@@ -383,223 +388,305 @@
       font-size: 14px;
       color: rgba(255,255,255,0.8);
     }
+
+    /* ===== Responsive Enhancements (Home2 + Mobile) ===== */
+    @media (max-width: 768px) {
+      header img {
+        width: 120px;
+      }
+
+      .parallax-content h2 {
+        font-size: 2.2rem;
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      .runway-item img {
+        width: 90%;
+      }
+
+      .category-container {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-container {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .social-icons {
+        justify-content: center;
+      }
+
+      .card img {
+        height: 200px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      header {
+        padding: 15px 4%;
+      }
+
+      .parallax {
+        background-attachment: scroll;
+        min-height: 70vh;
+      }
+
+      .parallax-content h2 {
+        font-size: 1.8rem;
+      }
+
+      .runway-item img {
+        width: 100%;
+      }
+
+      .footer {
+        padding: 30px 15px;
+      }
+
+      .card-body p {
+        font-size: 0.9rem;
+      }
+
+      .btn {
+        padding: 8px 16px;
+        font-size: 0.9rem;
+      }
+    }
+
+    @media (min-width: 1200px) {
+      .container,
+      .best-sellers,
+      .runway-section {
+        padding: 120px 8%;
+      }
+
+      .parallax-content h2 {
+        font-size: 3.5rem;
+      }
+    }
   </style>
 </head>
 
 <body>
+  <!-- SAME BODY CONTENT (unchanged) -->
+  <!-- ... your HTML content remains identical ... -->
+  <body>
 
-  <!-- ===== HEADER ===== -->
-  <header>
-    <img src="./logo.webp" alt="Stackly Logo">
-    <div class="menu-toggle" id="menu-toggle">
-      <span></span><span></span><span></span>
-    </div>
-
-    <nav>
-      <ul id="menu">
-        <li class="dropdown">
-          <a href="./index.html">Home1 ▾</a>
-          <ul class="dropdown-menu">
-            <li><a href="./hp2.html">Home2</a></li>
-          </ul>
-        </li>
-        <li><a href="shop.html">Shop</a></li>
-        <li><a href="product.html">Product</a></li>
-        <li><a href="blog.html">Blogs</a></li>
-        <li><a href="contact.html">Contact</a></li>
-        <li><a href="dashboard.html">Dashboard</a></li>
-        <li><a href="login.html">Login</a></li>
-      </ul>
-    </nav>
-  </header>
-
-  <!-- ===== REST OF YOUR PAGE CONTENT (unchanged) ===== -->
-  <!-- Hero, Cards, Runway, Best Sellers, Footer -->
-  <!-- (Your same content remains below this comment) -->
-  <section class="parallax reveal" >
-    <div class="parallax-content">
-      <h2 class="hero-animated-line">
-        <span>Signature</span> <span>Look</span> 
-        
-       
-      </h2>
+    <!-- ===== HEADER ===== -->
+    <header>
+      <img src="./logo.webp" alt="Stackly Logo">
+      <div class="menu-toggle" id="menu-toggle">
+        <span></span><span></span><span></span>
+      </div>
   
-      <p class="reveal" style="margin-top: 20px; font-size: 1.2rem; color: #ddd;">
-        Discover the finest in contemporary fashion <br>
-        Explore timeless silhouettes, seasonal collections,<br> and runway-inspired designs.. </p>
+      <nav>
+        <ul id="menu">
+          <li class="dropdown">
+            <a href="./index.html">Home1 ▾</a>
+            <ul class="dropdown-menu">
+              <li><a href="./hp2.html">Home2</a></li>
+            </ul>
+          </li>
+          <li><a href="shop.html">Shop</a></li>
+          <li><a href="product.html">Product</a></li>
+          <li><a href="blog.html">Blogs</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="dashboard.html">Dashboard</a></li>
+          <li><a href="login.html">Login</a></li>
+        </ul>
+      </nav>
+    </header>
   
-      <div class="hero-text-scroll">
-        <span>Luxury • Couture • Runway • Style • Elegance • Fashion • Confidence • </span>
+    <!-- ===== REST OF YOUR PAGE CONTENT (unchanged) ===== -->
+    <!-- Hero, Cards, Runway, Best Sellers, Footer -->
+    <!-- (Your same content remains below this comment) -->
+    <section class="parallax reveal" >
+      <div class="parallax-content">
+        <h2 class="hero-animated-line">
+          <span>Signature</span> <span>Look</span> 
+          
+         
+        </h2>
+    
+        <p class="reveal" style="margin-top: 20px; font-size: 1.2rem; color: #ddd;">
+          Discover the finest in contemporary fashion <br>
+          Explore timeless silhouettes, seasonal collections,<br> and runway-inspired designs.. </p>
+    
+        <div class="hero-text-scroll">
+          <span>Luxury • Couture • Runway • Style • Elegance • Fashion • Confidence • </span>
+        </div>
+      </div>
+    </section>
+    
+  
+  <section class="container fade-in">
+    <h2 class="section-title">New Season Highlights</h2>
+    <div class="cards">
+      <div class="card">
+        <img src="./winter1.webp" alt="Winter Collection">
+        <div class="card-body">
+          <h3>Winter Luxe Collection</h3>
+          <p>Embrace warm sophistication in cashmere, leather, and signature monochromes.</p>
+        </div>
+      </div>
+  
+      <div class="card">
+        <img src="./blazers.webp" alt="Runway Edit">
+        <div class="card-body">
+          <h3>Runway Edit 2025</h3>
+          <p>Featuring structured blazers and fluid gowns — the new definition of chic.</p>
+        </div>
+      </div>
+  
+      <div class="card">
+        <img src="./urban.webp" alt="Urban Couture">
+        <div class="card-body">
+          <h3>Urban Couture</h3>
+          <p>Effortless day-to-night looks that blend comfort with captivating elegance.</p>
+        </div>
       </div>
     </div>
   </section>
   
-
-<section class="container fade-in">
-  <h2 class="section-title">New Season Highlights</h2>
-  <div class="cards">
-    <div class="card">
-      <img src="./winter1.webp" alt="Winter Collection">
-      <div class="card-body">
-        <h3>Winter Luxe Collection</h3>
-        <p>Embrace warm sophistication in cashmere, leather, and signature monochromes.</p>
-      </div>
+  <section class="runway-section fade-in">
+    <h2 class="section-title">Runway Highlights</h2>
+    <div class="runway-track">
+      <div class="runway-item"><img src="./d11.webp" alt="run1"></div>
+      <div class="runway-item"><img src="./d2.webp" alt="run2"></div>
+      <div class="runway-item"><img src="./run3.webp" alt="run3"></div>
+      <div class="runway-item"><img src="./elegant.webp" alt="run4"></div>
+      <div class="runway-item"><img src="./d12.webp" alt="run5"></div>
     </div>
-
-    <div class="card">
-      <img src="./blazers.webp" alt="Runway Edit">
-      <div class="card-body">
-        <h3>Runway Edit 2025</h3>
-        <p>Featuring structured blazers and fluid gowns — the new definition of chic.</p>
-      </div>
-    </div>
-
-    <div class="card">
-      <img src="./urban.webp" alt="Urban Couture">
-      <div class="card-body">
-        <h3>Urban Couture</h3>
-        <p>Effortless day-to-night looks that blend comfort with captivating elegance.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="runway-section fade-in">
-  <h2 class="section-title">Runway Highlights</h2>
-  <div class="runway-track">
-    <div class="runway-item"><img src="./d11.webp" alt="run1"></div>
-    <div class="runway-item"><img src="./d2.webp" alt="run2"></div>
-    <div class="runway-item"><img src="./run3.webp" alt="run3"></div>
-    <div class="runway-item"><img src="./elegant.webp" alt="run4"></div>
-    <div class="runway-item"><img src="./d12.webp" alt="run5"></div>
-  </div>
-</section>
-
-<section class="best-sellers">
-  <h2>Best Sellers</h2>
-  <p class="section-tagline">Our most loved collections — luxury and lifestyle, curated for you.</p>
-
-  <div class="category-container">
-
-    <!-- Dresses -->
-    <div class="category-card">
-      <div class="card-inner">
-        <div class="card-front" style="background-image: url('dress.webp');">
-          <h3>Dresses</h3>
-        </div>
-        <div class="card-back">
-          <h3>Best Sellers of Dresses</h3>
-          <p>Explore the most trending fashion wear and elegant gowns for all occasions.</p>
-          <a href="shop.html" class="btn">Shop Now</a>
-        </div>
-      </div>
-    </div>
-
-    <!-- Kitchen -->
-    <div class="category-card">
-      <div class="card-inner">
-        <div class="card-front" style="background-image: url('./kitchen.webp');">
-          <h3>Kitchen</h3>
-        </div>
-        <div class="card-back">
-          <h3>Best Sellers of Kitchen Items</h3>
-          <p>Stylish cookware and premium utensils to elevate your modern home.</p>
-          <a href="shop.html" class="btn">Shop Now</a>
-        </div>
-      </div>
-    </div>
-
-    <!-- Cosmetics -->
-    <div class="category-card">
-      <div class="card-inner">
-        <div class="card-front" style="background-image: url('./makeup.webp');">
-          <h3>Cosmetics</h3>
-        </div>
-        <div class="card-back">
-          <h3>Best Sellers of Cosmetics</h3>
-          <p>Luxury skincare and beauty essentials — where elegance meets confidence.</p>
-          <a href="shop.html" class="btn">Shop Now</a>
-        </div>
-      </div>
-    </div>
-
-    <!-- Electronics -->
-    <div class="category-card">
-      <div class="card-inner">
-        <div class="card-front" style="background-image: url('./electronics.webp');">
-          <h3>Electronics</h3>
-        </div>
-        <div class="card-back">
-          <h3>Best Sellers of Electronics</h3>
-          <p>Smart gadgets and lifestyle tech essentials designed for modern living.</p>
-          <a href="shop.html" class="btn">Shop Now</a>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-
-<div class="announcement-bar">
-    <div class="announcement-text">
-      ✨ 10 Days Easy Return · Free Shipping (Nov–Dec) · Year-End Offer! ✨
-    </div>
-  </div>
+  </section>
   
-<!-- ===== FOOTER ===== -->
-<footer class="footer">
-  <div class="footer-container">
-
-    <!-- Column 1: Logo and About -->
-    <div class="footer-section about">
-      <img src="./logo.webp" alt="Stackly Logo" class="footer-logo" >
-    </div>
-
-    
-
-    <!-- Column 2: Quick Links -->
-    <div class="footer-section links">
-      <h4>Quick Links</h4>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="product.html">product </a></li>
-        <li><a href="about.html">about</a></li>
-        <li><a href="blog.html">Blog</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </div>
-
-    <!-- Column 3: Contact -->
-    <div class="footer-section contact">
-      <h4>Get in Touch</h4>
-      
-      <p> MMR complex,salem,Tamil nadu 636008</p>
-      <p>Email: <a href="mailto:support@stackly.com">info@thestackly.com</a></p>
-      <p>Phone: +91 70107 92745</p>
-
-      <div class="social-icons">
-        <a href="404.html"><i class="fab fa-facebook-f"></i></a>
-        <a href="404.html"><i class="fab fa-twitter"></i></a>
-        <a href="404.html"><i class="fab fa-linkedin-in"></i></a>
-        <a href="404.html"><i class="fab fa-instagram"></i></a>
+  <section class="best-sellers">
+    <h2>Best Sellers</h2>
+    <p class="section-tagline">Our most loved collections — luxury and lifestyle, curated for you.</p>
+  
+    <div class="category-container">
+  
+      <!-- Dresses -->
+      <div class="category-card">
+        <div class="card-inner">
+          <div class="card-front" style="background-image: url('dress.webp');">
+            <h3>Dresses</h3>
+          </div>
+          <div class="card-back">
+            <h3>Best Sellers of Dresses</h3>
+            <p>Explore the most trending fashion wear and elegant gowns for all occasions.</p>
+            <a href="shop.html" class="btn">Shop Now</a>
+          </div>
+        </div>
       </div>
   
-   
-      <iframe
-      src="https://www.google.com/maps?q=Salem%20Tamil%20Nadu&output=embed"
-      width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy">
-    </iframe>
-
+      <!-- Kitchen -->
+      <div class="category-card">
+        <div class="card-inner">
+          <div class="card-front" style="background-image: url('./kitchen.webp');">
+            <h3>Kitchen</h3>
+          </div>
+          <div class="card-back">
+            <h3>Best Sellers of Kitchen Items</h3>
+            <p>Stylish cookware and premium utensils to elevate your modern home.</p>
+            <a href="shop.html" class="btn">Shop Now</a>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Cosmetics -->
+      <div class="category-card">
+        <div class="card-inner">
+          <div class="card-front" style="background-image: url('./makeup.webp');">
+            <h3>Cosmetics</h3>
+          </div>
+          <div class="card-back">
+            <h3>Best Sellers of Cosmetics</h3>
+            <p>Luxury skincare and beauty essentials — where elegance meets confidence.</p>
+            <a href="shop.html" class="btn">Shop Now</a>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Electronics -->
+      <div class="category-card">
+        <div class="card-inner">
+          <div class="card-front" style="background-image: url('./electronics.webp');">
+            <h3>Electronics</h3>
+          </div>
+          <div class="card-back">
+            <h3>Best Sellers of Electronics</h3>
+            <p>Smart gadgets and lifestyle tech essentials designed for modern living.</p>
+            <a href="shop.html" class="btn">Shop Now</a>
+          </div>
+        </div>
+      </div>
+  
+    </div>
+  </section>
+  
+  
+  <div class="announcement-bar">
+      <div class="announcement-text">
+        ✨ 10 Days Easy Return · Free Shipping (Nov–Dec) · Year-End Offer! ✨
+      </div>
+    </div>
     
-          </div>
-          <div class="copyright">
-            <p>© 2025 Stackly | All Rights Reserved</p>
-          </div>
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="footer-container">
+  
+      <!-- Column 1: Logo and About -->
+      <div class="footer-section about">
+        <img src="./logo.webp" alt="Stackly Logo" class="footer-logo" >
+      </div>
+  
       
-        </footer>
-
-
+  
+      <!-- Column 2: Quick Links -->
+      <div class="footer-section links">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="product.html">product </a></li>
+          <li><a href="about.html">about</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+  
+      <!-- Column 3: Contact -->
+      <div class="footer-section contact">
+        <h4>Get in Touch</h4>
+        
+        <p> MMR complex,salem,Tamil nadu 636008</p>
+        <p>Email: <a href="mailto:support@stackly.com">info@thestackly.com</a></p>
+        <p>Phone: +91 70107 92745</p>
+  
+        <div class="social-icons">
+          <a href="404.html"><i class="fab fa-facebook-f"></i></a>
+          <a href="404.html"><i class="fab fa-twitter"></i></a>
+          <a href="404.html"><i class="fab fa-linkedin-in"></i></a>
+          <a href="404.html"><i class="fab fa-instagram"></i></a>
+        </div>
+    
+     
+        <iframe
+        src="https://www.google.com/maps?q=Salem%20Tamil%20Nadu&output=embed"
+        width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy">
+      </iframe>
+  
+      
+            </div>
+            <div class="copyright">
+              <p>© 2025 Stackly | All Rights Reserved</p>
+            </div>
+        
+          </footer>
+  
 
   <!-- ===== SCRIPT ===== -->
   <script>

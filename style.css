@@ -267,7 +267,7 @@
   .runway-item {
     flex: 0 0 auto;
     scroll-snap-align: center;
-    width: 250px;
+    width: 450px;
     margin: 0 1rem;
     border-radius: 12px;
     overflow: hidden;
