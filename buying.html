@@ -54,6 +54,7 @@ nav a {
   transition: 0.3s ease;
 }
 nav a:hover {
+  
   color: #f3b200;
 }
 ul.dropdown {
@@ -253,39 +254,33 @@ h1 { font-size: 40px; animation: fadeUp 0.8s ease; }
   iframe { height: 180px; }
 }
 
-/* ===== Dropdown Menu ===== */
-.dropdown {
-  position: relative;
-}
 
+/* Dropdown Base */
 .dropdown-menu {
   display: none;
   position: absolute;
-  top: 100%;
-  left: 0;
-  background: white;
+  background: #222;
+  padding: 12px 0;
   list-style: none;
-  padding: 10px 0;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  border-radius: 8px;
+  width: 180px;
+  top: 38px;
+  border-radius: 6px;
   z-index: 999;
-  min-width: 160px;
 }
 
-.dropdown-menu li {
-  text-align: left;
-  padding: 8px 20px;
-}
-
-.dropdown-menu li a {
-  color: #222;
-  text-decoration: none;
+/* Desktop Hover */
+.dropdown:hover .dropdown-menu {
   display: block;
 }
 
-.dropdown-menu li a:hover {
-  color: #e91e63;
-  background: rgba(233, 30, 99, 0.05);
+/* Mobile dropdown override */
+@media (max-width: 768px) {
+  .dropdown-menu {
+    position: relative;
+    top: 0;
+    background: #f1f0f0;
+    width: 100%;
+  }
 }
 
 /* Show dropdown on hover (desktop) */
@@ -311,6 +306,93 @@ h1 { font-size: 40px; animation: fadeUp 0.8s ease; }
     padding: 10px 0;
   }
 }
+/* ---------- Navigation Bar ---------- */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 25px;
+}
+
+#nav-links {
+  display: flex;
+  gap: 25px;
+  list-style: none;
+}
+
+#nav-links li {
+  position: relative;
+}
+
+#nav-links a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+/* Dropdown */
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 38px;
+  left: 0;
+  background: #222;
+  padding: 12px 0;
+  list-style: none;
+  border-radius: 5px;
+  width: 160px;
+}
+
+.dropdown-menu li {
+  text-align: left;
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+/* Mobile Menu Button */
+.menu-btn {
+  display: none;
+  font-size: 30px;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* ---------- Mobile (<=768px) ---------- */
+@media (max-width: 768px) {
+  #nav-links {
+    display: none;
+    flex-direction: column;
+    background: #222;
+    width: 100%;
+    text-align: center;
+    padding: 20px 0;
+    position: absolute;
+    top: 65px;
+    left: 0;
+  }
+
+  #nav-links.active {
+    display: flex;
+  }
+
+  .menu-btn {
+    display: block;
+  }
+
+  .dropdown-menu {
+    position: relative;
+    background: none;
+    box-shadow: none;
+  }
+
+  .dropdown-menu li a {
+    color: #fff;
+  }
+}
+
+
 
   </style>
 </head>
@@ -319,17 +401,26 @@ h1 { font-size: 40px; animation: fadeUp 0.8s ease; }
   <!-- 🟢 YOUR ORIGINAL CONTENT BELOW (unchanged) -->
   <!-- ===== HEADER + NAV ===== -->
   <header>
-    <nav id="navbar">
-      <div class="logo"><img src="./logo.webp" alt="Stackly Logo" style="width: 150px;"></div>
+    <nav class="navbar">
+      <div class="logo">
+        <img src="./logo.webp" style="width:150px;">
+      </div>
+  
+      <!-- Mobile Menu Button -->
       <div class="menu-btn" onclick="toggleMenu()">☰</div>
-      <ul>
-        <ul id="menu">
-          <li class="dropdown">
-            <a href="./hp2.html">Home2 ▾</a>
-            <ul class="dropdown-menu">
-              <li><a href="./index.html">Home1</a></li>
-              
-            </ul>
+  
+      <!-- Main Menu -->
+      <ul id="nav-links">
+        
+  
+        <li class="dropdown">
+          <a href="./hp2.html">Home2 ▾</a>
+          <ul class="dropdown-menu">
+            <li><a href="./index.html">Home1</a></li>
+           
+          </ul>
+        </li>
+  
         <li><a href="buying.html">Buy</a></li>
         <li><a href="selling.html">Sell</a></li>
         <li><a href="product2.html">Product</a></li>
@@ -340,6 +431,7 @@ h1 { font-size: 40px; animation: fadeUp 0.8s ease; }
       </ul>
     </nav>
   </header>
+  
 
   <div class="container">
     <section class="product-section">
@@ -1045,7 +1137,7 @@ h1 { font-size: 40px; animation: fadeUp 0.8s ease; }
           <h4>Quick Links</h4>
           <ul>
             <li><a href="index.html">Home</a></li>
-            <li><a href="product.html">product </a></li>
+            <li><a href="product2.html">product </a></li>
             <li><a href="about.html">about</a></li>
             <li><a href="blog.html">Blog</a></li>
             <li><a href="contact.html">Contact</a></li>
@@ -1085,24 +1177,25 @@ h1 { font-size: 40px; animation: fadeUp 0.8s ease; }
   </html>
   
 
-<script>
-function toggleMenu() {
-  document.getElementById("navbar").classList.toggle("active");
-}
-
+  <script>
+    function toggleMenu() {
+      document.getElementById('nav-links').classList.toggle('active');
+    }
+   
+    
 
   const toggle = document.getElementById('menu-toggle');
   const menu = document.getElementById('menu');
   const dropdowns = document.querySelectorAll('.dropdown');
 
-  toggle.addEventListener('click', () => {
+  toggle.addEventListener('link', () => {
     menu.classList.toggle('active');
     toggle.classList.toggle('open');
   });
 
   // Handle dropdown toggle for mobile
   dropdowns.forEach(drop => {
-    drop.addEventListener('click', (e) => {
+    drop.addEventListener('link', (e) => {
       if (window.innerWidth <= 950) {
         e.preventDefault();
         drop.classList.toggle('open');
