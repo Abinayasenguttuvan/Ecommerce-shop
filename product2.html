@@ -480,6 +480,65 @@ body {
 }
 
 
+/* =========================================================
+   PRODUCT GRID SPACING + PERFECT EQUAL GAP FIX
+========================================================= */
+
+/* Add equal spacing between each product row */
+.slider-row {
+  padding: 30px 0;
+}
+
+/* Improve spacing *inside* the track */
+.product-track {
+  gap: 35px !important;   /* equal space between cards */
+  padding: 10px 20px;
+}
+
+/* Ensure every product card has fixed width */
+.product-card {
+  flex: 0 0 250px !important;
+  margin: 0 10px;
+}
+
+/* ===========================================
+    MOBILE FIX — cards become centered grid
+=========================================== */
+@media (max-width: 768px) {
+  .product-track {
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 25px !important;
+  }
+
+  .product-card {
+    flex: 0 0 45% !important;
+  }
+
+  .card-front img {
+    height: 150px !important;
+  }
+}
+
+/* ===========================================
+  EXTRA SMALL SCREEN FIX
+=========================================== */
+@media (max-width: 480px) {
+  .product-card {
+    flex: 0 0 90% !important;
+  }
+
+  .card-front img {
+    height: 140px !important;
+  }
+}
+
+.card-front img,
+.modal-content img {
+  height: 200px !important;
+  object-fit: contain !important;
+}
+
 
 </style>
 </head>
@@ -509,7 +568,7 @@ body {
             <li><a href="index.html">Home1</a></li>
             <li><a href="buying.html">Buy</a></li>
             <li><a href="product2.html">Product</a></li>
-            <li><a href="aboutus1.html">Aboutus</a></li>
+            <li><a href="aboutus1.html">About us</a></li>
             <li><a href="contact1.html">Contact</a></li>
             <li><a href="login1.html">Login</a></li>
             <li><a href="dashbored2.html">Dashboard</a></li>
