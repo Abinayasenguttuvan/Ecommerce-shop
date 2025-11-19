@@ -225,6 +225,307 @@
 }
 
 
+/* ============================
+     GLOBAL RESET
+============================ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background: #f9f9f9;
+  color: #333;
+}
+
+/* ============================
+      HEADER
+============================ */
+header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 5%;
+      background: rgba(255, 255, 255, 0.98);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(5px);
+      z-index: 1000;
+    }
+
+
+header img {
+  width: 140px;
+}
+
+/* Navbar Menu */
+header nav ul {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+}
+
+header nav ul li a {
+  text-decoration: none;
+  color: #222;
+  font-size: 16px;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+header nav ul li a:hover {
+  color: #ff0066;
+}
+
+/* Hamburger Menu */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.menu-toggle span {
+  width: 28px;
+  height: 3px;
+  background: #222;
+  border-radius: 3px;
+}
+
+/* ============================
+    RESPONSIVE NAVIGATION
+============================ */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: flex;
+  }
+
+  nav ul {
+    position: absolute;
+    top: 70px;
+    right: 0;
+    background: #fff;
+    width: 250px;
+    flex-direction: column;
+    gap: 0;
+    display: none;
+    border-left: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+  }
+
+  nav ul.active {
+    display: flex;
+  }
+
+  nav ul li {
+    width: 100%;
+    padding: 14px 20px;
+  }
+
+  nav ul li a {
+    width: 100%;
+    display: block;
+  }
+}
+
+/* ============================
+      CONTACT HERO
+============================ */
+.contact-hero {
+  text-align: center;
+  padding: 120px 20px;
+  color: #fff;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.contact-hero::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+}
+
+.contact-hero h1,
+.contact-hero p {
+  position: relative;
+  z-index: 2;
+}
+
+.contact-hero h1 {
+  font-size: 48px;
+  font-weight: 700;
+}
+
+.contact-hero p {
+  font-size: 18px;
+  margin-top: 10px;
+}
+
+/* ============================
+     CONTACT CONTENT
+============================ */
+.contact-container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 50px 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+
+/* Info Cards */
+.contact-info {
+  display: grid;
+  gap: 20px;
+}
+
+.info-card {
+  background: #fff;
+  padding: 25px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.info-card .icon {
+  font-size: 40px;
+  color: #ff0066;
+  margin-bottom: 10px;
+}
+
+.info-card h3 {
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+
+/* Form */
+.form-container {
+  background: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.form-container h2 {
+  margin-bottom: 20px;
+  font-size: 26px;
+}
+
+form input,
+form textarea {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border: 1px solid #bbb;
+  border-radius: 8px;
+  font-size: 15px;
+  outline: none;
+}
+
+form input:focus,
+form textarea:focus {
+  border-color: #ff0066;
+}
+
+.btn {
+  display: inline-block;
+  padding: 12px 20px;
+  background: #ff0066;
+  color: #fff;
+  border: none;
+  margin-top: 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background: #cc0055;
+}
+
+/* Error message */
+.contact-error-msg {
+  color: red;
+  margin-top: 5px;
+  font-size: 14px;
+}
+
+/* ============================
+      MAP SECTION
+============================ */
+.map-section {
+  text-align: center;
+  padding: 50px 20px;
+}
+
+.map-section h2 {
+  margin-bottom: 20px;
+}
+
+.map-section iframe {
+  width: 100%;
+  height: 350px;
+  border-radius: 12px;
+  border: none;
+}
+
+/* ============================
+      FAQ
+============================ */
+.faq-section {
+  max-width: 1200px;
+  margin: auto;
+  padding: 50px 20px;
+}
+
+.faq-item {
+  background: #fff;
+  padding: 25px;
+  border-radius: 12px;
+  margin-bottom: 15px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.faq-item h3 {
+  font-size: 20px;
+  color: #ff0066;
+}
+
+/* ============================
+   MOBILE RESPONSIVE FIXES
+============================ */
+@media (max-width: 900px) {
+  .contact-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 500px) {
+  .contact-hero h1 {
+    font-size: 32px;
+  }
+
+  .contact-hero p {
+    font-size: 14px;
+  }
+
+  form input,
+  form textarea {
+    font-size: 14px;
+  }
+}
+
   
 
   </style>
