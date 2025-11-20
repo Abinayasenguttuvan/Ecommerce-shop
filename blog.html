@@ -479,15 +479,22 @@
   <!-- ===== Comment Section ===== -->
   <section class="comments">
     <h3>Leave a Comment</h3>
+
     <form id="commentForm">
       <input type="text" id="name" placeholder="Your Name" required>
       <textarea id="comment" rows="4" placeholder="Your Comment..." required></textarea>
-     
-      <button type="submit" class="btn" onclick="window.location.href='./404.html'">post Comment</button>
 
+      <button type="submit" class="btn">Post Comment</button>
+
+      <!-- Error message -->
+      <p id="errorMsg" style="color:red; margin-top:10px; display:none;">
+        Please fill all the fields.
+      </p>
     </form>
+
     <div class="comment-list" id="commentList"></div>
-  </section>
+</section>
+
 
   <!-- ===== Related Posts ===== -->
   <section class="related-posts">
@@ -603,9 +610,23 @@ const toggle = document.getElementById('menu-toggle');
 
 
 
-function stacklyToggleMenuNew() {
-    document.getElementById("navbar").classList.toggle("active");
-}
+ 
+document.getElementById("commentForm").addEventListener("submit", function(e) {
+    e.preventDefault(); // Stop auto form submission
+
+    const name = document.getElementById("name").value.trim();
+    const comment = document.getElementById("comment").value.trim();
+    const errorMsg = document.getElementById("errorMsg");
+
+    if (name === "" || comment === "") {
+        errorMsg.style.display = "block";      // Show error message
+    } else {
+        errorMsg.style.display = "none";       // Hide error message
+        window.location.href = "./404.html";   // Redirect on success
+    }
+});
+</script>
+
    
   </script>
 
