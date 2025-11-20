@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -161,54 +162,9 @@ body {
 }
 
 /* MOBILE */
-@media (max-width: 768px) {
+@media (max-width: 768px){}
 
-    /* .stackly-new-navbar {
-        position: relative;
-    }
-
-    .stackly-rsp-toggle {
-        display: block;
-        position: absolute;
-        right: 20px;
-        top: 22px;
-        z-index: 999999;
-    } */
-
-    /* Hide menu initially */
-    /* .stackly-new-menu {
-        display: none;
-        flex-direction: column !important;
-        background: white;
-        width: 100%;
-        position: absolute;
-        top: 70px;
-        left: 0;
-        padding: 20px 0;
-        gap: 15px;
-        z-index: 9999;
-        box-shadow: 0 5px 12px rgba(0,0,0,0.1);
-    } */
-
-    /* Show menu when active */
-    /* .stackly-new-menu.stackly-rsp-open {
-        display: flex !important;
-    }
-
-    .stackly-new-menu li {
-        width: 100%;
-        text-align: center;
-    }
-
-    .stackly-new-menu li a {
-        font-size: 18px;
-        padding: 12px 0;
-        display: block;
-        width: 100%;
-    } */
-}
-
-
+    
 
 
 
@@ -387,11 +343,13 @@ header {
 }
 
 #mainImg {
+  /* width: 90%; */
   width: 100%;
   height: 380px;
   object-fit: cover;
   border-radius: 10px;
   box-shadow: 0 0 10px #ddd;
+  
 }
 
 /* ===============================
@@ -403,6 +361,8 @@ header {
   gap: 12px;
   margin-top: 15px;
   flex-wrap: wrap;
+  
+  
 }
 
 .image-slider img {
@@ -492,6 +452,7 @@ header {
   border-radius: 10px;
 }
 
+
 /* ===============================
      MEDIA QUERY (MOBILE)
 =============================== */
@@ -499,7 +460,7 @@ header {
 @media (max-width: 768px) {
   
   .product-section {
-    flex-direction: column;
+    /* flex-direction: column; */
   }
 
   #mainImg {
@@ -519,6 +480,7 @@ header {
     margin-top: 20px;
   }
 }
+ 
 
 @media (max-width: 480px) {
 
@@ -1372,62 +1334,7 @@ header {
       }
 
 
-       /* =======================================
-   NEW UNIQUE RESPONSIVE HEADER (NO CLASH)
-   ======================================= */
-
-/* .stackly-new-header {
-    width: 100%;
-    background: #fff;
-    position: fixed;
-    top: 0; left: 0;
-    z-index: 99999;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-}
-
-.stackly-new-navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 18px 5%;
-}
-
-.stackly-new-logo img {
-    width: 150px;
-} 
-
-/* Desktop Menu */
- /* .stackly-new-menu {
-    display: flex;
-    gap: 25px;
-    list-style: none;
-} */
-
-/* .stackly-new-menu li a {
-    text-decoration: none;
-    font-weight: 600;
-    color: #222;
-    transition: .3s;
-}
-
-.stackly-new-menu li a:hover {
-    color: #c49b66;
-}   */
-
-/* Hamburger Button */
-/* .stackly-new-menu-btn {
-    display: none;
-    flex-direction: column;
-    gap: 6px;
-    cursor: pointer;
-}
-
-.stackly-new-menu-btn span {
-    width: 32px;
-    height: 3px;
-    background: #000;
-    border-radius: 5px;
-} */
+       
 
 /* ============================
    MOBILE RESPONSIVE MENU
@@ -1439,29 +1346,31 @@ header {
     }
 
     .stackly-new-menu {
-        position: fixed;
-        top: 80px;
-        right: -100%;
-        width: 70%;
-        height: 100vh;
-        background: #fff;
-        flex-direction: column;
-        gap: 25px;
-        padding-top: 30px;
-        text-align: center;
-        transition: 0.4s;
-        box-shadow: -5px 0 15px rgba(0,0,0,0.1);
-    }
+    position: fixed;
+    top: 0;
+    /* left: -350px;      Hidden */
+    width: 250px;
+    height: 100vh;
+    background: #ffffff;
+    flex-direction: column;
+    padding-top: 80px;
+    gap: 20px;
+    transition: left 0.3s ease;
+    box-shadow: 3px 0 10px rgba(0,0,0,0.2);
+    z-index: 9999;
+  }
 
-    .stackly-new-menu.active {
-        right: 0; */
-    }
+  .stackly-new-menu li a {
+    color: #000 !important;
+    font-size: 18px;
+    padding: 12px 20px;
+    display: block;
+    text-align: left;
+  }
 
-    .stackly-new-menu li a {
-        font-size: 22px;
-        padding: 10px 0;
-        display: block;
-    }
+  .stackly-new-menu.active {
+    left: 0;      /* Slide in */
+  }
 }
 
 /* Full width on very small screens */
